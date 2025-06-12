@@ -92,14 +92,17 @@
       justify-content: center;
       z-index: 10;
       pointer-events: none;
-      transition: transform 0.8s cubic-bezier(0.7,0.2,0.2,1.1), top 0.8s cubic-bezier(0.7,0.2,0.2,1.1);
+      transition: transform 0.7s cubic-bezier(0.7,0.2,0.2,1.1), top 0.7s cubic-bezier(0.7,0.2,0.2,1.1);
       will-change: transform, top;
     }
-    .hero-wrapper.shrunk {
+    .hero-wrapper.shrinking {
+      transform: translate(-50%, -50%) scale(0.2);
+    }
+    .hero-wrapper.at-top {
       top: 0;
       transform: translate(-50%, 0) scale(0.2);
     }
-    .hero-wrapper.shrunk .ball-container {
+    .hero-wrapper.at-top .ball-container {
       margin-top: 2vh;
     }
     .hero-title {
@@ -138,9 +141,13 @@
 </body>
 <script>
   const hero = document.querySelector('.hero-wrapper');
-  // Wait for both the ball and text to finish animating, then move up and shrink
+  // Two-step hero animation: shrink, then move to top
   setTimeout(() => {
-    hero.classList.add('shrunk');
+    hero.classList.add('shrinking');
+    setTimeout(() => {
+      hero.classList.remove('shrinking');
+      hero.classList.add('at-top');
+    }, 700); // match transition duration
   }, 2200); // 1.2s (ball) + 2s (fade-in) = 2.2s
 </script>
 </html>
