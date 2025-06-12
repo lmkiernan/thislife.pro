@@ -33,7 +33,7 @@
 
     /* Combined move-up-and-shrink state */
     .hero-wrapper.moved {
-      top: 0;
+      top: 3px; /* small gap from top */
       transform: translateX(-50%) scale(0.2);
       transform-origin: top center;
     }
@@ -75,7 +75,8 @@
       animation: fade-in 2s ease forwards;
       animation-delay: 1.2s;
       text-align: center;
-      font-size: clamp(2.5rem, 8vw, 7.5rem);
+      /* Increased size relative to the orb */
+      font-size: clamp(4rem, 18vw, 12rem);
       line-height: 1;
     }
 
@@ -88,7 +89,8 @@
         width: clamp(120px, 67vw, 74vw);
       }
       h1 {
-        font-size: clamp(1rem, 9vw, 2.5rem);
+        /* Larger on small screens too */
+        font-size: clamp(2rem, 14vw, 5rem);
       }
     }
   </style>
