@@ -101,16 +101,27 @@
   const hero = document.querySelector('.hero-wrapper');
   const minScale = 0.375; // 3/8 of original size
   const minTop = 40; // px from top when minimized
-  const maxScroll = 200; // px of scroll to reach minimized state
+  const maxScroll = 700; // px of scroll to reach minimized state (smoother, longer)
 
-  function onScroll() {
-    const scrollY = window.scrollY;
-    const progress = Math.min(scrollY / maxScroll, 1);
+  let latestScrollY = 0;
+  let ticking = false;
+
+  function updateHero() {
+    const progress = Math.min(latestScrollY / maxScroll, 1);
     const scale = 1 - (1 - minScale) * progress;
     const top = 50 - (50 - (minTop * 100 / window.innerHeight)) * progress;
     hero.style.transform = `translate(-50%, -50%) scale(${scale})`;
     hero.style.top = `${top}vh`;
     hero.style.position = 'fixed';
+    ticking = false;
+  }
+
+  function onScroll() {
+    latestScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(updateHero);
+      ticking = true;
+    }
   }
   window.addEventListener('scroll', onScroll);
 </script>
