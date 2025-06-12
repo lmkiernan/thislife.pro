@@ -18,7 +18,7 @@
     }
     .ball-container {
       position: relative;
-      width: clamp(280px, 60vw, 1200px);
+      width: clamp(350px, 70vw, 1400px);
       aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
@@ -36,6 +36,10 @@
       z-index: 2;
       box-shadow: 0 0 0 0 #000;
       animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
     @keyframes ball-in {
       0% {
@@ -122,7 +126,7 @@
       justify-content: center;
       gap: 0;
       line-height: 0.6;
-      font-size: clamp(2.2rem, 7vw, 8rem);
+      font-size: clamp(2.8rem, 9vw, 10rem);
     }
     .hero-this, .hero-life {
       display: block;
@@ -132,12 +136,10 @@
     }
     @media (max-width: 600px) {
       .ball-container {
-        width: clamp(160px, 80vw, 95vw);
-        min-width: 0;
-        max-width: 95vw;
+        width: clamp(180px, 90vw, 98vw);
       }
       .hero-title {
-        font-size: clamp(1.2rem, 10vw, 3rem);
+        font-size: clamp(1.4rem, 13vw, 4rem);
       }
     }
   </style>
@@ -145,9 +147,10 @@
 <body>
   <div class="hero-wrapper">
     <div class="ball-container">
-      <div class="red-ball"></div>
+      <div class="red-ball">
+        <h1 class="hero-title"><span class="hero-this">This</span><br><span class="hero-life">Life</span></h1>
+      </div>
     </div>
-    <h1 class="hero-title"><span class="hero-this">This</span><br><span class="hero-life">Life</span></h1>
   </div>
   <div class="mission-popup" id="missionPopup">
     <div class="mission-title">our mission</div>
