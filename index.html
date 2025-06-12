@@ -65,7 +65,7 @@
       z-index: 3;
       position: relative;
       opacity: 0;
-      animation: fade-in 0.7s ease forwards;
+      animation: fade-in 2s ease forwards;
       animation-delay: 1.2s; /* matches ball-in duration */
     }
     @keyframes fade-in {
@@ -73,12 +73,46 @@
         opacity: 1;
       }
     }
+    .hero-wrapper {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s cubic-bezier(0.7,0.2,0.2,1.1), top 0.2s cubic-bezier(0.7,0.2,0.2,1.1);
+      z-index: 10;
+      will-change: transform, top;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <div class="ball-container">
-    <div class="red-ball"></div>
+  <div class="hero-wrapper">
+    <div class="ball-container">
+      <div class="red-ball"></div>
+    </div>
+    <h1>This Life</h1>
   </div>
-  <h1>This Life</h1>
+  <div style="height: 200vh;"></div> <!-- For scroll testing -->
 </body>
+<script>
+  const hero = document.querySelector('.hero-wrapper');
+  const minScale = 0.375; // 3/8 of original size
+  const minTop = 40; // px from top when minimized
+  const maxScroll = 200; // px of scroll to reach minimized state
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const progress = Math.min(scrollY / maxScroll, 1);
+    const scale = 1 - (1 - minScale) * progress;
+    const top = 50 - (50 - (minTop * 100 / window.innerHeight)) * progress;
+    hero.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    hero.style.top = `${top}vh`;
+    hero.style.position = 'fixed';
+  }
+  window.addEventListener('scroll', onScroll);
+</script>
 </html>
