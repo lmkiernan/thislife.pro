@@ -72,7 +72,7 @@
       margin: 0;
       color: #4eb3e6;
       opacity: 0;
-      animation: fade-in 2s ease forwards;
+      animation: fade-in 0.7s ease forwards;
       animation-delay: 1.2s;
       text-align: center;
       /* Increased size relative to the orb */
@@ -107,10 +107,10 @@
   <script>
     const hero = document.querySelector('.hero-wrapper');
     
-    // Wait until both the ball-in and fade-in animations complete
+    // Trigger move and fade-in simultaneously after ball animation
     setTimeout(() => {
       hero.classList.add('moved');
-    }, 2200); // 1.2s (ball) + 1s buffer for fade-in overlap
+    }, 1200); // triggers at end of ball-in animation
   </script>
 </body>
 </html>
