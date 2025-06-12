@@ -49,6 +49,8 @@
       /* Outer shell border for the orb */
       border: 6px solid rgba(255, 255, 255, 0.3);
       border-radius: 50%;
+      /* Animate the entire orb (border + fill) */
+      animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
     }
 
     .red-ball {
@@ -56,8 +58,6 @@
       height: 100%;
       border-radius: 50%;
       background: radial-gradient(circle at 60% 40%, #ff4b4b 0%, #da131d 80%, #d2262b 100%);
-      /* animation */
-      animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -74,7 +74,11 @@
       font-weight: 800;            /* Extra-Bold weight */
       letter-spacing: 0;
       margin: 0;
-      color: #ffffff;
+      /* Gradient text effect */
+      background: linear-gradient(135deg, #4eb3e6 0%, #8acfff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
       opacity: 0;
       animation: fade-in 0.7s ease forwards;
       animation-delay: 1.2s;
@@ -99,14 +103,14 @@
   <div class="hero-wrapper">
     <div class="ball-container">
       <div class="red-ball">
-        <h1>this<br>life</h1>
+        <h1>This<br>Life</h1>
       </div>
     </div>
   </div>
 
   <script>
     const hero = document.querySelector('.hero-wrapper');
-    // Trigger move and fade-in simultaneously after ball animation
+    // Trigger move and fade-in simultaneously after orb animation
     setTimeout(() => {
       hero.classList.add('moved');
     }, 1200);
