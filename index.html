@@ -13,118 +13,87 @@
       overflow: hidden;
     }
     body {
-      background: #18293a; /* dark blue from the image */
-      color: #4eb3e6; /* blue from 'CIRCULAR BACKGROUND' */
-      width: 100vw;
-      height: 100vh;
+      background: #18293a;
+      color: #4eb3e6;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
     }
-    .ball-container {
-      position: relative;
-      width: clamp(260px, 52vw, 1050px);
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 0;
-      pointer-events: none;
-      margin: 0 auto;
-    }
-    .red-ball {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 60% 40%, #ff4b4b 0%, #da131d 80%, #d2262b 100%);
-      z-index: 2;
-      box-shadow: 0 0 0 0 #000;
-      animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    @keyframes ball-in {
-      0% {
-        transform: translateX(-600px);
-        opacity: 0.7;
-      }
-      70% {
-        transform: translateX(30px);
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-    h1 {
-      color: #4eb3e6; /* blue from 'CIRCULAR BACKGROUND' */
-      text-align: center;
-      font-size: 2.5rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin: 0;
-      z-index: 3;
-      position: relative;
-      opacity: 0;
-      animation: fade-in 2s ease forwards;
-      animation-delay: 1.2s; /* matches ball-in duration */
-    }
-    @keyframes fade-in {
-      to {
-        opacity: 1;
-      }
-    }
+
     .hero-wrapper {
       position: fixed;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      transform-origin: center center;
+      transition:
+        transform 0.7s cubic-bezier(0.7,0.2,0.2,1.1),
+        top 0.7s cubic-bezier(0.7,0.2,0.2,1.1);
       z-index: 10;
       pointer-events: none;
-      transition: transform 0.7s cubic-bezier(0.7,0.2,0.2,1.1), top 0.7s cubic-bezier(0.7,0.2,0.2,1.1);
-      will-change: transform, top;
     }
+
     .hero-wrapper.shrinking {
       transform: translate(-50%, -50%) scale(0.2);
     }
+
     .hero-wrapper.at-top {
+      /* move to top-center */
       top: 0;
-      transform: translate(-50%, 0) scale(0.2);
+      transform: translateX(-50%) scale(0.2);
+      transform-origin: top center;
     }
-    .hero-wrapper.at-top .ball-container {
-      margin-top: 2vh;
-    }
-    .hero-title {
+
+    .ball-container {
+      width: clamp(260px, 52vw, 1050px);
+      aspect-ratio: 1 / 1;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0;
-      line-height: 0.6;
-      font-size: clamp(2.1rem, 6.75vw, 7.5rem);
+      pointer-events: none;
     }
-    .hero-this, .hero-life {
-      display: block;
+
+    .red-ball {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 60% 40%, #ff4b4b 0%, #da131d 80%, #d2262b 100%);
+      box-shadow: 0 0 0 0 #000;
+      animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes ball-in {
+      0%   { transform: translateX(-600px); opacity: 0.7; }
+      70%  { transform: translateX(30px);  opacity: 1;   }
+      100% { transform: translateX(0);     opacity: 1;   }
+    }
+
+    h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin: 0;
+      color: #4eb3e6;
+      opacity: 0;
+      animation: fade-in 2s ease forwards;
+      animation-delay: 1.2s;
+      text-align: center;
+      font-size: clamp(2.5rem, 8vw, 7.5rem);
       line-height: 1;
-      margin-bottom: 0;
-      margin-top: 0;
     }
+
+    @keyframes fade-in {
+      to { opacity: 1; }
+    }
+
     @media (max-width: 600px) {
       .ball-container {
         width: clamp(120px, 67vw, 74vw);
       }
-      .hero-title {
+      h1 {
         font-size: clamp(1rem, 9vw, 2.5rem);
       }
     }
@@ -134,20 +103,27 @@
   <div class="hero-wrapper">
     <div class="ball-container">
       <div class="red-ball">
-        <h1 class="hero-title"><span class="hero-this">This</span><br><span class="hero-life">Life</span></h1>
+        <h1>This<br>Life</h1>
       </div>
     </div>
   </div>
-</body>
-<script>
-  const hero = document.querySelector('.hero-wrapper');
-  // Two-step hero animation: shrink, then move to top
-  setTimeout(() => {
-    hero.classList.add('shrinking');
+
+  <script>
+    const hero = document.querySelector('.hero-wrapper');
+
+    // start after both animations have run
     setTimeout(() => {
-      hero.classList.remove('shrinking');
-      hero.classList.add('at-top');
-    }, 700); // match transition duration
-  }, 2200); // 1.2s (ball) + 2s (fade-in) = 2.2s
-</script>
+      hero.classList.add('shrinking');
+
+      // once shrink transition is done, move up
+      hero.addEventListener('transitionend', function handler(e) {
+        // only react to the transform transition
+        if (e.propertyName === 'transform') {
+          hero.removeEventListener('transitionend', handler);
+          hero.classList.add('at-top');
+        }
+      });
+    }, 2200); // 1.2s (ball) + 2s (fade-in) = 2.2s
+  </script>
+</body>
 </html>
