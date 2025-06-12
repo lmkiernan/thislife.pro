@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>this life website</title>
+  <!-- Load Montserrat with Bold and Extra-Bold weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
   <style>
     html, body {
       height: 100vh;
@@ -14,7 +16,6 @@
     }
     body {
       background: #18293a;
-      color: #4eb3e6;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -33,7 +34,7 @@
 
     /* Combined move-up-and-shrink state */
     .hero-wrapper.moved {
-      top: 7px; /* small gap from top */
+      top: 3px; /* small gap from top */
       transform: translateX(-50%) scale(0.2);
       transform-origin: top center;
     }
@@ -45,6 +46,9 @@
       align-items: center;
       justify-content: center;
       pointer-events: none;
+      /* Outer shell border for the orb */
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
     }
 
     .red-ball {
@@ -52,7 +56,7 @@
       height: 100%;
       border-radius: 50%;
       background: radial-gradient(circle at 60% 40%, #ff4b4b 0%, #da131d 80%, #d2262b 100%);
-      box-shadow: 0 0 0 0 #000;
+      /* animation */
       animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
       display: flex;
       justify-content: center;
@@ -67,31 +71,27 @@
 
     h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      font-weight: 800;            /* Extra-Bold weight */
+      letter-spacing: 0;
       margin: 0;
-      color: #4eb3e6;
+      color: #ffffff;
       opacity: 0;
       animation: fade-in 0.7s ease forwards;
       animation-delay: 1.2s;
       text-align: center;
-      /* Increased size relative to the orb */
       font-size: clamp(4rem, 18vw, 12rem);
       line-height: 1;
+      text-transform: lowercase;
     }
 
-    @keyframes fade-in {
-      to { opacity: 1; }
-    }
+    @keyframes fade-in { to { opacity: 1; } }
 
     @media (max-width: 600px) {
       .ball-container {
         width: clamp(120px, 67vw, 74vw);
+        border-width: 4px;
       }
-      h1 {
-        /* Larger on small screens too */
-        font-size: clamp(2rem, 14vw, 5rem);
-      }
+      h1 { font-size: clamp(2rem, 14vw, 5rem); }
     }
   </style>
 </head>
@@ -99,18 +99,17 @@
   <div class="hero-wrapper">
     <div class="ball-container">
       <div class="red-ball">
-        <h1>This<br>Life</h1>
+        <h1>this<br>life</h1>
       </div>
     </div>
   </div>
 
   <script>
     const hero = document.querySelector('.hero-wrapper');
-    
     // Trigger move and fade-in simultaneously after ball animation
     setTimeout(() => {
       hero.classList.add('moved');
-    }, 1200); // triggers at end of ball-in animation
+    }, 1200);
   </script>
 </body>
 </html>
