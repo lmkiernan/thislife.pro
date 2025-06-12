@@ -129,7 +129,6 @@
     </div>
     <h1>This Life</h1>
   </div>
-  <div style="height: 200vh;"></div> <!-- For scroll testing -->
   <div class="mission-popup" id="missionPopup">
     <div class="mission-title">our mission</div>
   </div>
@@ -141,18 +140,10 @@
     hero.classList.add('shrunk');
   }, 2200); // 1.2s (ball) + 2s (fade-in) = 2.2s
 
-  // Mission popup logic
+  // Mission popup logic (fade in after hero animates to top)
   const missionPopup = document.getElementById('missionPopup');
-  function checkScrollBottom() {
-    const scrollY = window.scrollY;
-    const windowHeight = window.innerHeight;
-    const bodyHeight = document.body.offsetHeight;
-    if (scrollY + windowHeight >= bodyHeight - 10) {
-      missionPopup.classList.add('visible');
-    } else {
-      missionPopup.classList.remove('visible');
-    }
-  }
-  window.addEventListener('scroll', checkScrollBottom);
+  setTimeout(() => {
+    missionPopup.classList.add('visible');
+  }, 3000); // 2.2s (hero anim) + 0.8s (move up) = 3s
 </script>
 </html>
