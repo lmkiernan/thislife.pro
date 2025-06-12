@@ -14,6 +14,54 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .ball-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px;
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .radial-glow {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.0) 100%);
+      filter: blur(8px);
+      z-index: 1;
+    }
+    .red-ball {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #d21a22;
+      z-index: 2;
+      box-shadow: 0 0 0 0 #000;
+      animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
+    }
+    @keyframes ball-in {
+      0% {
+        transform: translateX(-600px);
+        opacity: 0.7;
+      }
+      70% {
+        transform: translateX(30px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
     h1 {
       color: #4eb3e6; /* blue from 'CIRCULAR BACKGROUND' */
@@ -23,10 +71,16 @@
       font-weight: 700;
       letter-spacing: 0.05em;
       margin: 0;
+      z-index: 3;
+      position: relative;
     }
   </style>
 </head>
 <body>
-  <h1>this life website</h1>
+  <div class="ball-container">
+    <div class="radial-glow"></div>
+    <div class="red-ball"></div>
+  </div>
+  <h1>This Life</h1>
 </body>
 </html>
