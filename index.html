@@ -92,9 +92,9 @@
     }
     .mission-popup {
       position: fixed;
-      left: 50%;
-      bottom: 40px;
-      transform: translateX(-50%) scale(0.95);
+      top: 40px;
+      left: 40px;
+      transform: scale(0.95);
       background: transparent;
       color: #4eb3e6;
       padding: 48px 64px;
@@ -109,7 +109,7 @@
     .mission-popup.visible {
       opacity: 1;
       pointer-events: auto;
-      transform: translateX(-50%) scale(1);
+      transform: scale(1);
     }
     .mission-title {
       font-size: 3rem;
@@ -119,37 +119,6 @@
       text-align: center;
       text-transform: uppercase;
       color: #4eb3e6;
-    }
-  </style>
-  <style>
-    @media (max-width: 600px) {
-      .hero-wrapper {
-        top: 24px;
-        left: 50%;
-        transform: translate(-50%, 0) scale(0.6) !important;
-      }
-      .hero-wrapper.shrunk {
-        top: 24px;
-        left: 50%;
-        transform: translate(-50%, 0) scale(0.6) !important;
-      }
-      .mission-popup {
-        position: static;
-        margin: 24px auto 0 auto;
-        left: unset;
-        bottom: unset;
-        transform: none;
-        width: 90vw;
-        max-width: 360px;
-        padding: 24px 8px;
-        border-radius: 20px;
-        font-size: 1.5rem;
-        box-sizing: border-box;
-        text-align: center;
-      }
-      .mission-title {
-        font-size: 2rem;
-      }
     }
   </style>
 </head>
