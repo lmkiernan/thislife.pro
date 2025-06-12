@@ -18,7 +18,9 @@
     }
     .ball-container {
       position: relative;
-      width: clamp(280px, 60vw, 1200px);
+      width: 100vw;
+      max-width: 1500px;
+      min-width: 600px;
       aspect-ratio: 1 / 1;
       display: flex;
       align-items: center;
@@ -122,23 +124,15 @@
       justify-content: center;
       gap: 0;
       line-height: 0.6;
-      font-size: clamp(2.2rem, 7vw, 8rem);
+      font-size: 6vw;
+      max-font-size: 160px;
+      min-font-size: 48px;
     }
     .hero-this, .hero-life {
       display: block;
       line-height: 1;
       margin-bottom: 0;
       margin-top: 0;
-    }
-    @media (max-width: 600px) {
-      .ball-container {
-        width: clamp(160px, 80vw, 95vw);
-        min-width: 0;
-        max-width: 95vw;
-      }
-      .hero-title {
-        font-size: clamp(1.2rem, 10vw, 3rem);
-      }
     }
   </style>
 </head>
