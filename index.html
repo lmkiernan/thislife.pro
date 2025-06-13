@@ -92,17 +92,24 @@
       position: fixed;
       top: calc(7px + var(--orb-scaled) + 80px);
       left: calc(50% + var(--orb-radius) + 8px);
-      padding: 0.5em 1em;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4eb3e6 0%, #1976d2 100%);
       color: #fff;
-      background: rgba(0,0,0,0.6);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
       border: none;
-      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       opacity: 0;
       transition: opacity 0.5s ease;
       pointer-events: auto;
+      box-shadow: 0 4px 16px rgba(30,60,120,0.15);
+      padding: 0;
     }
     .play-btn.visible {
       opacity: 1;
@@ -114,7 +121,8 @@
       .play-btn {
         top: calc(7px + var(--orb-scaled) + 60px);
         left: calc(50% + var(--orb-radius) + 6px);
-        padding: 0.4em 0.8em;
+        width: 44px;
+        height: 44px;
         font-size: 0.9rem;
       }
     }
