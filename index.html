@@ -71,21 +71,17 @@
 
     h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 800;            /* Extra-Bold weight */
-      letter-spacing: 0;
+      font-weight: 700;            /* Bold weight for exact match */
+      letter-spacing: 0.05em;      /* Subtle spacing like the example */
       margin: 0;
-      /* Gradient text effect */
-      background: linear-gradient(135deg, #4eb3e6 0%, #8acfff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #f5f5f5;               /* Soft white for matching look */
       opacity: 0;
       animation: fade-in 0.7s ease forwards;
       animation-delay: 1.2s;
       text-align: center;
       font-size: clamp(4rem, 18vw, 12rem);
       line-height: 1;
-      text-transform: lowercase;
+      text-transform: none;         /* Preserve capitalization */
     }
 
     @keyframes fade-in { to { opacity: 1; } }
@@ -95,7 +91,9 @@
         width: clamp(120px, 67vw, 74vw);
         border-width: 4px;
       }
-      h1 { font-size: clamp(2rem, 14vw, 5rem); }
+      h1 {
+        font-size: clamp(2rem, 14vw, 5rem);
+      }
     }
   </style>
 </head>
