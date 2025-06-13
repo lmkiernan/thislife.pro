@@ -4,9 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>this life website</title>
-  <!-- Load Montserrat with Bold and Extra-Bold weights -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <!-- Load Montserrat with Bold weight -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      /* Base orb size and scaled values */
+      --orb-base: clamp(260px, 52vw, 1050px);
+      --orb-scaled: calc(var(--orb-base) * 0.2);
+      --orb-radius: calc(var(--orb-scaled) / 2);
+    }
     html, body {
       height: 100vh;
       width: 100vw;
@@ -31,28 +37,23 @@
       z-index: 10;
       pointer-events: none;
     }
-
-    /* Combined move-up-and-shrink state */
     .hero-wrapper.moved {
-      top: 7px; /* small gap from top */
+      top: 7px;
       transform: translateX(-50%) scale(0.2);
       transform-origin: top center;
     }
 
     .ball-container {
-      width: clamp(260px, 52vw, 1050px);
-      aspect-ratio: 1 / 1;
+      width: var(--orb-base);
+      aspect-ratio: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
-      /* Outer shell border for the orb */
-      border: 6px solid rgba(255, 255, 255, 0.3);
+      border: 6px solid rgba(255,255,255,0.3);
       border-radius: 50%;
-      /* Animate the entire orb (border + fill) */
-      animation: ball-in 1.2s cubic-bezier(0.7, 0.2, 0.2, 1.1);
+      animation: ball-in 1.2s cubic-bezier(0.7,0.2,0.2,1.1);
     }
-
     .red-ball {
       width: 100%;
       height: 100%;
@@ -62,7 +63,6 @@
       justify-content: center;
       align-items: center;
     }
-
     @keyframes ball-in {
       0%   { transform: translateX(-600px); opacity: 0.7; }
       70%  { transform: translateX(30px);  opacity: 1;   }
@@ -71,28 +71,51 @@
 
     h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;            /* Bold weight for exact match */
-      letter-spacing: 0.05em;      /* Subtle spacing like the example */
+      font-weight: 700;
+      letter-spacing: 0.05em;
       margin: 0;
-      color: #f5f5f5;               /* Soft white for matching look */
+      color: #f5f5f5;
       opacity: 0;
       animation: fade-in 0.7s ease forwards;
       animation-delay: 1.2s;
       text-align: center;
       font-size: clamp(4rem, 18vw, 12rem);
       line-height: 1;
-      text-transform: none;         /* Preserve capitalization */
+      text-transform: none;
+    }
+    @keyframes fade-in {
+      to { opacity: 1; }
     }
 
-    @keyframes fade-in { to { opacity: 1; } }
+    /* Play button styling */
+    .play-btn {
+      position: fixed;
+      top: calc(7px + var(--orb-scaled) + 8px);
+      left: calc(50% + var(--orb-radius) + 8px);
+      padding: 0.5em 1em;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: auto;
+    }
+    .play-btn.visible {
+      opacity: 1;
+    }
 
     @media (max-width: 600px) {
-      .ball-container {
-        width: clamp(120px, 67vw, 74vw);
-        border-width: 4px;
-      }
-      h1 {
-        font-size: clamp(2rem, 14vw, 5rem);
+      .ball-container { border-width: 4px; }
+      h1 { font-size: clamp(2rem, 14vw, 5rem); }
+      .play-btn {
+        top: calc(7px + var(--orb-scaled) + 6px);
+        left: calc(50% + var(--orb-radius) + 6px);
+        padding: 0.4em 0.8em;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -106,12 +129,26 @@
     </div>
   </div>
 
+  <!-- Audio element -->
+  <audio id="site-audio" src="testSound.mp3" preload="auto"></audio>
+  <button id="play-btn" class="play-btn">Play Sound</button>
+
   <script>
     const hero = document.querySelector('.hero-wrapper');
-    // Trigger move and fade-in simultaneously after orb animation
+    const btn  = document.getElementById('play-btn');
+    const audio= document.getElementById('site-audio');
+
+    // After orb animation, move + show button
     setTimeout(() => {
       hero.classList.add('moved');
+      btn.classList.add('visible');
     }, 1200);
+
+    // Play audio on click
+    btn.addEventListener('click', () => {
+      audio.currentTime = 0;
+      audio.play().catch(e => console.warn(e));
+    });
   </script>
 </body>
 </html>
