@@ -92,10 +92,11 @@
       position: fixed;
       top: calc(7px + var(--orb-scaled) + 80px);
       left: calc(50% + var(--orb-radius) + 8px);
-      width: 102px;
-      height: 102px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       background: linear-gradient(135deg, #4eb3e6 0%, #1976d2 100%);
+      border: 6px solid rgba(255,255,255,0.3);
       color: #fff;
       font-family: 'Montserrat', sans-serif;
       font-size: 1.2rem;
@@ -121,8 +122,8 @@
       .play-btn {
         top: calc(7px + var(--orb-scaled) + 60px);
         left: calc(50% + var(--orb-radius) + 6px);
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
         font-size: 0.9rem;
       }
     }
@@ -139,7 +140,7 @@
 
   <!-- Audio element -->
   <audio id="site-audio" src="examples.mp3" preload="auto"></audio>
-  <button id="play-btn" class="play-btn">Here Something Real</button>
+  <button id="play-btn" class="play-btn">Hear Something Real</button>
 
   <script>
     const hero = document.querySelector('.hero-wrapper');
