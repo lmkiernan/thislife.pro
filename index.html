@@ -116,6 +116,12 @@
       opacity: 1;
     }
 
+    .learn-btn {
+      top: calc(7px + var(--orb-scaled) + 240px);
+      left: calc(50% + var(--orb-radius) - 120px);
+      background: linear-gradient(135deg, #1976d2 0%, #4eb3e6 100%);
+    }
+
     @media (max-width: 600px) {
       .ball-container { border-width: 4px; }
       h1 { font-size: clamp(2rem, 14vw, 5rem); }
@@ -125,6 +131,10 @@
         width: 90px;
         height: 90px;
         font-size: 0.9rem;
+      }
+      .learn-btn {
+        top: calc(7px + var(--orb-scaled) + 170px);
+        left: calc(50% + var(--orb-radius) - 60px);
       }
     }
   </style>
@@ -140,12 +150,16 @@
 
   <!-- Audio element -->
   <audio id="site-audio" src="examples.mp3" preload="auto"></audio>
+  <audio id="patrick-audio" src="/patrick_theory.mp3" preload="auto"></audio>
   <button id="play-btn" class="play-btn">Hear Something Real</button>
+  <button id="learn-btn" class="play-btn learn-btn">But Why?</button>
 
   <script>
     const hero = document.querySelector('.hero-wrapper');
     const btn  = document.getElementById('play-btn');
     const audio= document.getElementById('site-audio');
+    const learnBtn = document.getElementById('learn-btn');
+    const patrickAudio = document.getElementById('patrick-audio');
 
     // After orb animation, move + show button
     setTimeout(() => {
@@ -157,6 +171,12 @@
     btn.addEventListener('click', () => {
       audio.currentTime = 0;
       audio.play().catch(e => console.warn(e));
+    });
+
+    // Play patrick_theory.mp3 on 'But Why?' click
+    learnBtn.addEventListener('click', () => {
+      patrickAudio.currentTime = 0;
+      patrickAudio.play().catch(e => console.warn(e));
     });
   </script>
 </body>
