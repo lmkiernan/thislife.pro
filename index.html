@@ -200,7 +200,7 @@
       if (button1) {
         button1.addEventListener('click', function () {
           if (this.textContent === '▶') {
-            patrickAudio.play().then(() => { this.textContent = '⏸'; }).catch(console.warn);
+            patrickAudio.play().then(() => { this.textContent = 'll'; }).catch(console.warn);
           } else {
             patrickAudio.pause(); this.textContent = '▶';
           }
@@ -209,7 +209,7 @@
       if (button2) {
         button2.addEventListener('click', function () {
           if (this.textContent === '▶') {
-            audio.play().then(() => { this.textContent = '⏸'; }).catch(console.warn);
+            audio.play().then(() => { this.textContent = 'll'; }).catch(console.warn);
           } else {
             audio.pause(); this.textContent = '▶';
           }
