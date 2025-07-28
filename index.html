@@ -78,7 +78,12 @@
     .label { color: white; margin-top: 0.5rem; }
     /* Responsive iPhone image */
     .iphone-img-desktop {
-      width: clamp(200px, 30vw, 400px); /* Smaller overall */
+      width: clamp(200px, 30vw, 400px);
+      position: fixed;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
     }
     .stripe {
       width: 100%; background: #455a64;
@@ -112,7 +117,7 @@
       color: white; font-size: 1rem;
       text-align: center; max-width: 250px;
     }
-    /* Mobile */
+        /* Mobile */
     @media (max-width: 768px) {
       .title { font-size: 2.5rem; }
       .subtitle { font-size: 1.5rem; }
@@ -132,11 +137,28 @@
         padding: 0 1rem;
       }
     }
+    
+    /* Medium screens - hide when space is limited */
+    @media (max-width: 1200px) and (min-width: 769px) {
+      .iphone-img-desktop { 
+        width: clamp(150px, 20vw, 300px);
+        left: 1rem;
+      }
+    }
+    
+    /* Small desktop - hide to prevent overlap */
+    @media (max-width: 1000px) and (min-width: 769px) {
+      .iphone-img-desktop { display: none; }
+    }
     /* Desktop */
     @media (min-width: 769px) {
       .container { padding: 2rem; }
       .btn-layout { flex-direction: row; align-items: flex-start; gap: 3rem; margin-top: 2rem; }
-      .iphone-img-desktop { display: block; }
+      .iphone-img-desktop { 
+        display: block; 
+        left: 4rem;
+        top: 60%;
+      }
       .btn-section { align-items: flex-start; }
       .buttons-row { gap: 1rem; }
       .audio-buttons { gap: 2rem; }
@@ -158,8 +180,8 @@
     <div class="middle-text">
       Three experiences. One goal: greater peace with yourself and reality. Non-phony. Audio based. For people who no matter what else may happen want to at least feel ok about how they tried.
     </div>
+    <img src="thislife.png" alt="This Life iPhone" class="iphone-img-desktop">
     <div class="btn-layout">
-      <img src="thislife.png" alt="This Life iPhone" class="iphone-img-desktop">
       <div class="btn-section">
         <div class="buttons-row">
           <button class="join-button">Join the experiment</button>
