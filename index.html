@@ -81,9 +81,21 @@
       width: clamp(150px, 22.5vw, 300px);
       position: absolute;
       left: 2rem;
-      top: 45%;
+      top: 55%;
       transform: translateY(-50%);
       z-index: 10;
+    }
+    
+    /* Red circle in upper right corner */
+    .red-circle {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      z-index: 100;
     }
     .stripe {
       width: 100%; background: #455a64;
@@ -174,6 +186,7 @@
   </style>
 </head>
 <body>
+  <div class="red-circle"></div>
   <div class="container">
     <h1 class="title">This Life</h1>
     <h2 class="subtitle">an experiment in spiritual and emotional progress</h2>
