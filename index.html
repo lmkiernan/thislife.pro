@@ -38,7 +38,7 @@
     .middle-text {
       color: #4eb3e6;
       font-size: clamp(1rem, 0.6vw, 1.8rem);
-      width: 80%; margin: 0 auto 2rem;
+      width: 30%; margin: 0 auto 2rem;
     }
     .btn-layout {
       display: flex; justify-content: center;
@@ -49,6 +49,12 @@
     .btn-section {
       display: flex; flex-direction: column;
       align-items: center; gap: 1rem;
+    }
+    .buttons-row {
+      display: flex; align-items: flex-start; gap: 3rem;
+    }
+    .audio-buttons {
+      display: flex; flex-direction: column; gap: 1.5rem;
     }
     .join-button {
       background: #0287ca; color: #ffffff;
@@ -132,10 +138,8 @@
       .btn-layout { flex-direction: row; align-items: flex-start; gap: 6rem; margin-top: 2rem; }
       .iphone-img-desktop { display: block; }
       .btn-section { align-items: flex-start; }
-      .btn-section > .join-button { margin-bottom: 2rem; }
-      .btn-section > div {
-        display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
-      }
+      .buttons-row { gap: 4rem; }
+      .audio-buttons { gap: 2rem; }
       .btn-section .label { margin: 0; }
       .btn-section .label:first-of-type { font-size: 1.3rem; }
       .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
@@ -157,16 +161,20 @@
     <div class="btn-layout">
       <img src="thislife.png" alt="This Life iPhone" class="iphone-img-desktop">
       <div class="btn-section">
-        <button class="join-button">Join the experiment</button>
-        <div>
-          <button id="play-button-1" class="circular-button circular-button-1">▶</button>
-          <div class="label">Theory</div>
-          <div class="label">~1 min explanation of the idea</div>
-        </div>
-        <div>
-          <button id="play-button-2" class="circular-button circular-button-2">▶</button>
-          <div class="label">Experience</div>
-          <div class="label">~1 min montage of early members</div>
+        <div class="buttons-row">
+          <button class="join-button">Join the experiment</button>
+          <div class="audio-buttons">
+            <div>
+              <button id="play-button-1" class="circular-button circular-button-1">▶</button>
+              <div class="label">Theory</div>
+              <div class="label">~1 min explanation of the idea</div>
+            </div>
+            <div>
+              <button id="play-button-2" class="circular-button circular-button-2">▶</button>
+              <div class="label">Experience</div>
+              <div class="label">~1 min montage of early members</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
