@@ -23,7 +23,7 @@
       text-align: center;
     }
     .container {
-      width: 100%; max-width: 1440px;
+      width: 95%; max-width: none;
       padding: 0.5rem 1rem; position: relative;
     }
     .title {
@@ -44,6 +44,7 @@
       display: flex; justify-content: center;
       align-items: center; flex-wrap: wrap;
       gap: 2rem;
+      width: 100%;
     }
     .btn-section {
       display: flex; flex-direction: column;
@@ -127,8 +128,8 @@
     }
     /* Desktop */
     @media (min-width: 769px) {
-      .container { padding: 4rem; }
-      .btn-layout { flex-direction: row; align-items: flex-start; gap: 4rem; margin-top: 2rem; }
+      .container { padding: 2rem; }
+      .btn-layout { flex-direction: row; align-items: flex-start; gap: 6rem; margin-top: 2rem; }
       .iphone-img-desktop { display: block; }
       .btn-section { align-items: flex-start; }
       .btn-section > .join-button { margin-bottom: 2rem; }
