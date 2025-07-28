@@ -6,53 +6,39 @@
   <title>This Life Website</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     html, body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       background: #0a1929;
       overflow-x: hidden;
     }
-
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-
     .container {
-      width: 100%;
-      max-width: 1440px;
+      width: 100%; max-width: 1440px;
       padding: 2rem;
       position: relative;
     }
-
     .title {
       font-size: clamp(3rem, 6vw, 6.5rem);
-      color: white;
-      margin: 1rem 0;
+      color: white; margin: 1rem 0;
     }
-
     .subtitle {
       font-size: clamp(1.5rem, 3vw, 2.5rem);
-      color: white;
-      opacity: 0.8;
+      color: white; opacity: 0.8;
       margin-bottom: 1.5rem;
     }
-
     .middle-text {
       color: #4eb3e6;
       font-size: clamp(1rem, 2vw, 1.8rem);
-      width: 80%;
-      margin: 0 auto 2rem;
+      width: 80%; margin: 0 auto 2rem;
     }
-
     .btn-layout {
       display: flex;
       justify-content: center;
@@ -60,14 +46,12 @@
       flex-wrap: wrap;
       gap: 2rem;
     }
-
     .btn-section {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1rem;
     }
-
     .join-button {
       background: #403f3f;
       color: white;
@@ -78,119 +62,97 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .join-button:hover {
       background: #777777;
       border-color: #5bc0de;
     }
-
     .circular-button {
-      width: 70px;
-      height: 70px;
+      width: 70px; height: 70px;
       border-radius: 50%;
-      font-size: 1.5rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
+      font-size: 1.5rem; font-weight: 600;
+      border: none; cursor: pointer;
       transition: all 0.3s ease;
     }
-
-    .circular-button:hover {
-      transform: scale(1.1);
-    }
-
-    .circular-button-1 {
-      background: #4eb3e6;
-      color: white;
-    }
-
-    .circular-button-2 {
-      background: #ff6b6b;
-      color: white;
-    }
-
-    .label {
-      color: white;
-      margin-top: 0.5rem;
-    }
-
-    .iphone-img-desktop {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-    }
-
+    .circular-button:hover { transform: scale(1.1); }
+    .circular-button-1 { background: #4eb3e6; color: white; }
+    .circular-button-2 { background: #ff6b6b; color: white; }
+    .label { color: white; margin-top: 0.5rem; }
+    .iphone-img-desktop { max-width: 300px; width: 100%; height: auto; }
     .stripe {
-      width: 100%;
-      background: #455a64;
+      width: 100%; background: #455a64;
       padding: 3rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      margin-top: 3rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 2rem;
+      margin-top: 3rem; position: relative;
     }
-
     .stripe-circles {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 3rem;
+      width: 100%; max-width: 1200px;
     }
-
-    .stripe-item {
-      background: #4eb3e6;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      color: white;
+    .stripe-col {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      gap: 0.5rem;
+      width: 30%;
+    }
+    .stripe-item {
+      background: #4eb3e6;
+      width: 180px; height: 180px;
+      border-radius: 50%; color: white;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      font-size: 1.2rem; font-weight: 600;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      margin: 0;
+    }
+    .stripe-title {
+      color: white;
       font-size: 1.2rem;
       font-weight: 600;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      margin-left: 10px;
     }
-
     .stripe-description {
       color: white;
       font-size: 1rem;
-      max-width: 250px;
       text-align: center;
+      max-width: 250px;
+    }
+    .app-links {
+      display: flex;
+      gap: 1rem;
+      position: absolute;
+      right: 2rem; bottom: 2rem;
+    }
+    .app-badge { width: 120px; height: auto; cursor: pointer; }
+
+    /* Mobile (keep current) */
+    @media (max-width: 768px) {
+      .title { font-size: 2.5rem; }
+      .subtitle { font-size: 1.5rem; }
+      .middle-text { font-size: 1.1rem; width: 90%; }
+      .btn-layout { flex-direction: column; }
+      .iphone-img-desktop { display: none; }
+      .stripe-circles { flex-direction: column; gap: 2rem; }
+      .stripe-item { margin: 0 auto; }
+      .app-links { display: none; }
     }
 
-    @media (max-width: 768px) {
-      .title {
-        font-size: 2.5rem;
-      }
-
-      .subtitle {
-        font-size: 1.5rem;
-      }
-
-      .middle-text {
-        font-size: 1.1rem;
-        width: 90%;
-      }
-
-      .btn-layout {
-        flex-direction: column;
-      }
-
-      .stripe-circles {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .stripe-item {
-        margin-left: 0;
-      }
-
-      .iphone-img-desktop {
-        display: none;
-      }
+    /* Desktop-specific overrides */
+    @media (min-width: 769px) {
+      .container { padding: 4rem; }
+      .btn-layout { flex-direction: row; align-items: flex-start; gap: 4rem; margin-top: 2rem; }
+      .iphone-img-desktop { display: block; max-width: 350px; }
+      .btn-section { align-items: flex-start; }
+      .btn-section > .join-button { margin-bottom: 2rem; }
+      .btn-section > div { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+      .btn-section .label { margin: 0; }
+      .btn-section .label:first-of-type { font-size: 1.3rem; }
+      .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
+      .stripe { flex-direction: row; justify-content: space-between; padding: 4rem 2rem; }
+      .stripe-circles { justify-content: space-around; }
     }
   </style>
 </head>
@@ -208,12 +170,12 @@
         <div>
           <button id="play-button-1" class="circular-button circular-button-1">▶</button>
           <div class="label">Theory</div>
-          <div class="label" style="font-size: 0.9rem; opacity: 0.8;">explanation of the idea</div>
+          <div class="label">~1 min explanation of the idea</div>
         </div>
         <div>
           <button id="play-button-2" class="circular-button circular-button-2">▶</button>
           <div class="label">Experience</div>
-          <div class="label" style="font-size: 0.9rem; opacity: 0.8;">montage of early members</div>
+          <div class="label">~1 min montage of early members</div>
         </div>
       </div>
     </div>
@@ -221,18 +183,25 @@
 
   <div class="stripe">
     <div class="stripe-circles">
-      <div>
+      <div class="stripe-col">
         <div class="stripe-item">my spoken<br>notes</div>
-        <div class="stripe-description">Say anything that might help move you forward. You do it just for you. You record it to help yourself keep going.</div>
+        <div class="stripe-title">Just you and possibly God</div>
+        <div class="stripe-description">talk to yourself and/or God & record it so you'll keep going & (2) an experiment thing</div>
       </div>
-      <div>
-        <div class="stripe-item" style="background: white; color: #333">spiritual<br>hitchhiking</div>
-        <div class="stripe-description">Two strangers, paired for just a moment. Neither is in the other’s contacts. One day of shared words. No judgment.</div>
+      <div class="stripe-col">
+        <div class="stripe-item" style="background: #ffffff; color: #333333;">one of the<br>day</div>
+        <div class="stripe-title">one-to-many</div>
+        <div class="stripe-description">we all hear what one person said as they tried to steer their life toward greater peace — when they had no reason to perform</div>
       </div>
-      <div>
-        <div class="stripe-item" style="background: #3a8acb;">one of the<br>day</div>
-        <div class="stripe-description">With permission, we hear one person trying to steer toward peace — when they had no reason to perform.</div>
+      <div class="stripe-col">
+        <div class="stripe-item" style="background: #3a8acb;">spiritual<br>hitchhiking</div>
+        <div class="stripe-title">1-to-1</div>
+        <div class="stripe-description">two strangers temporarily can hear one another’s words; option to exchange a single text</div>
       </div>
+    </div>
+    <div class="app-links">
+      <img src="appstore.png" alt="App Store" class="app-badge">
+      <img src="googleplay.png" alt="Google Play" class="app-badge">
     </div>
   </div>
 
