@@ -53,6 +53,104 @@
       opacity: 0.8;
     }
     
+    .middle-text {
+      position: absolute;
+      top: 280px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #4eb3e6;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+      margin: 0;
+      width: 38%;
+    }
+    
+    .middle-section {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 33.33%;
+      text-align: center;
+    }
+    
+    .section-1 {
+      top: 350px;
+      height: 60vh;
+      left: 40%;
+      transform: translateX(-50%);
+    }
+    
+    .section-2 {
+      top: 570px;
+      height: 15vh;
+    }
+    
+    .join-button {
+      background: #403f3f;
+      color: #ffffff;
+      border: 3px solid #4eb3e6;
+      border-radius: 14px;
+      padding: 22px 43px;
+      font-size: 2.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .join-button:hover {
+      background: #777777;
+      border-color: #5bc0de;
+    }
+    
+    .circular-button {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .circular-button:hover {
+      transform: scale(1.1);
+    }
+    
+    .circular-button-1 {
+      background: #4eb3e6;
+      color: #ffffff;
+    }
+    
+    .circular-button-2 {
+      background: #ff6b6b;
+      color: #ffffff;
+    }
+    
+    .experience-title {
+      position: absolute;
+      left: 120%;
+      top: 36%;
+      transform: translateY(-50%);
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .experience-subtitle {
+      position: absolute;
+      left: 120%;
+      top: 75%;
+      transform: translateY(-50%);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
     .red-circle {
       position: absolute;
       top: -400px;
@@ -103,6 +201,60 @@
       color: #ffffff;
     }
     
+    .stripe-title {
+      position: absolute;
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+    }
+    
+    .stripe-title-1 {
+      top: 73.9%;
+      left: 33.33%;
+      transform: translateX(-50%);
+    }
+    
+    .stripe-title-2 {
+      top: 73.9%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .stripe-title-3 {
+      top: 73.9%;
+      left: 66.67%;
+      transform: translateX(-50%);
+    }
+
+    .stripe-subtitle {
+      position: absolute;
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+    }
+    
+    .stripe-subtitle-1 {
+      top: 77.2%;
+      left: 33.33%;
+      transform: translateX(-50%);
+    }
+
+    .stripe-subtitle-2 {
+      top: 77.2%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .stripe-subtitle-3 {
+      top: 77.2%;
+      left: 66.67%;
+      transform: translateX(-50%);
+    }
+
     .iphone {
       position: absolute;
       left: -10%;
@@ -131,9 +283,99 @@
   <img src="thislife.png" alt="This Life Background" class="iphone">
   <h1 class="title">This Life</h1>
   <h2 class="subtitle">an experiment in spiritual and emotional progress</h2>
+  <div class="middle-text">Three experiences. One goal: greater peace with yourself and reality. Non-phony. Audio based. For people who no matter what else may happen want to at least feel ok about how they tried.</div>
+  <div class="middle-section section-1">
+    <button class="join-button" style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%);">Join the experiment</button>
+    <div style="position: absolute; left: 95%; top: 50%; transform: translateY(-50%);">
+      <button id="play-button-2" class="circular-button circular-button-2">▶</button>
+      <div class="experience-title">Experience</div>
+      <div class="experience-subtitle">montage of early members</div>
+    </div>
+    <div style="position: absolute; left: 95%; top: 25%; transform: translateY(-50%);">
+      <button id="play-button-1" class="circular-button circular-button-1">▶</button>
+      <div class="experience-title">Theory</div>
+      <div class="experience-subtitle">explanation of the idea</div>
+    </div>
+  </div>
   <div class="stripe"></div>
   <div class="stripe-circle circle-1">my spoken<br>notes</div>
-  <div class="stripe-circle circle-2">one of the<br>day</div>
-  <div class="stripe-circle circle-3">spiritual<br>hitchhiker</div>
+  <div class="stripe-title stripe-title-1">Solitude</div>
+  <div class="stripe-subtitle stripe-subtitle-1">Say anything that might help move you forward. <br>
+    You do it just for you. <br>
+    You record it to help yourself keep going.</div>
+  <div class="stripe-circle circle-2">spiritual<br>hitchiking</div>
+  <div class="stripe-title stripe-title-2">1-to-1</div>
+  <div class="stripe-subtitle stripe-subtitle-2">Two strangers, paired for just a moment. <br>
+    Neither is in the other’s contacts. <br>
+    For one day, each can hear a portion of what the other said. <br>
+    No public credit. No risk of judgment.
+  </div>
+  <div class="stripe-circle circle-3">one of the<br>day</div>
+  <div class="stripe-title stripe-title-3">1-to-many</div>
+  <div class="stripe-subtitle stripe-subtitle-3">With their permission, we all hear what one person <br>
+    said as they tried to steer their life toward greater peace <br>
+     — when they had no reason to perform.</div>
+  <audio id="examples-audio" src="examples.mp3" preload="auto"></audio>
+  <audio id="patrick-audio" src="patrick_theory.mp3" preload="auto"></audio>
 </body>
+<script>
+  // Wait a bit longer to ensure everything is loaded
+  setTimeout(function() {
+    // Get the circular buttons by unique IDs
+    const button1 = document.getElementById('play-button-1');
+    const button2 = document.getElementById('play-button-2');
+    const audio = document.getElementById('examples-audio');
+    const patrickAudio = document.getElementById('patrick-audio');
+    
+    console.log('Button 1 found:', button1);
+    console.log('Button 2 found:', button2);
+    console.log('All buttons on page:', document.querySelectorAll('button'));
+    
+    // Add click event listeners to toggle between play and pause
+    if (button1) {
+      console.log('Adding event listener to button 1');
+      button1.addEventListener('click', function() {
+        console.log('Button 1 clicked');
+        console.log('Patrick audio element:', patrickAudio);
+        if (this.textContent === '▶') {
+          // Play patrick_theory.mp3 and switch to pause icon
+          patrickAudio.play().then(() => {
+            console.log('Patrick audio started playing');
+            this.textContent = '⏸';
+          }).catch(e => {
+            console.warn('Patrick audio play failed:', e);
+          });
+        } else {
+          // Pause audio and switch to play icon
+          patrickAudio.pause();
+          console.log('Patrick audio paused');
+          this.textContent = '▶';
+        }
+      });
+    } else {
+      console.log('Button 1 not found!');
+    }
+    
+    if (button2) {
+      console.log('Adding event listener to button 2');
+      button2.addEventListener('click', function() {
+        console.log('Button 2 clicked');
+        if (this.textContent === '▶') {
+          // Play audio and switch to pause icon
+          audio.play().then(() => {
+            this.textContent = '⏸';
+          }).catch(e => {
+            console.warn('Audio play failed:', e);
+          });
+        } else {
+          // Pause audio and switch to play icon
+          audio.pause();
+          this.textContent = '▶';
+        }
+      });
+    } else {
+      console.log('Button 2 not found!');
+    }
+  }, 100); // 100ms delay
+</script>
 </html>
