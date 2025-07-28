@@ -62,16 +62,11 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .join-button:hover {
-      background: #777777;
-      border-color: #5bc0de;
-    }
+    .join-button:hover { background: #777777; border-color: #5bc0de; }
     .circular-button {
       width: 70px; height: 70px;
-      border-radius: 50%;
-      font-size: 1.5rem; font-weight: 600;
-      border: none; cursor: pointer;
-      transition: all 0.3s ease;
+      border-radius: 50%; font-size: 1.5rem; font-weight: 600;
+      border: none; cursor: pointer; transition: all 0.3s ease;
     }
     .circular-button:hover { transform: scale(1.1); }
     .circular-button-1 { background: #4eb3e6; color: white; }
@@ -83,20 +78,16 @@
       padding: 3rem 1rem;
       display: flex; flex-direction: column;
       align-items: center; gap: 2rem;
-      margin-top: 3rem; position: relative;
+      margin-top: 3rem;
     }
     .stripe-circles {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 3rem;
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 3rem;
       width: 100%; max-width: 1200px;
     }
     .stripe-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
       width: 30%;
     }
     .stripe-item {
@@ -110,25 +101,13 @@
       margin: 0;
     }
     .stripe-title {
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 600;
+      color: white; font-size: 1.2rem; font-weight: 600;
     }
     .stripe-description {
-      color: white;
-      font-size: 1rem;
-      text-align: center;
-      max-width: 250px;
+      color: white; font-size: 1rem;
+      text-align: center; max-width: 250px;
     }
-    .app-links {
-      display: flex;
-      gap: 1rem;
-      position: absolute;
-      right: 2rem; bottom: 2rem;
-    }
-    .app-badge { width: 120px; height: auto; cursor: pointer; }
-
-    /* Mobile (keep current) */
+    /* Mobile */
     @media (max-width: 768px) {
       .title { font-size: 2.5rem; }
       .subtitle { font-size: 1.5rem; }
@@ -137,22 +116,22 @@
       .iphone-img-desktop { display: none; }
       .stripe-circles { flex-direction: column; gap: 2rem; }
       .stripe-item { margin: 0 auto; }
-      .app-links { display: none; }
     }
-
-    /* Desktop-specific overrides */
+    /* Desktop */
     @media (min-width: 769px) {
       .container { padding: 4rem; }
       .btn-layout { flex-direction: row; align-items: flex-start; gap: 4rem; margin-top: 2rem; }
       .iphone-img-desktop { display: block; max-width: 350px; }
       .btn-section { align-items: flex-start; }
       .btn-section > .join-button { margin-bottom: 2rem; }
-      .btn-section > div { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+      .btn-section > div {
+        display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+      }
       .btn-section .label { margin: 0; }
       .btn-section .label:first-of-type { font-size: 1.3rem; }
       .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
-      .stripe { flex-direction: row; justify-content: space-between; padding: 4rem 2rem; }
-      .stripe-circles { justify-content: space-around; }
+      .stripe { flex-direction: row; justify-content: center; padding: 4rem 2rem; }
+      .stripe-circles { justify-content: center; }
     }
   </style>
 </head>
@@ -199,10 +178,6 @@
         <div class="stripe-description">two strangers temporarily can hear one another’s words; option to exchange a single text</div>
       </div>
     </div>
-    <div class="app-links">
-      <img src="appstore.png" alt="App Store" class="app-badge">
-      <img src="googleplay.png" alt="Google Play" class="app-badge">
-    </div>
   </div>
 
   <audio id="examples-audio" src="examples.mp3" preload="auto"></audio>
@@ -218,25 +193,18 @@
       if (button1) {
         button1.addEventListener('click', function () {
           if (this.textContent === '▶') {
-            patrickAudio.play().then(() => {
-              this.textContent = '⏸';
-            }).catch(console.warn);
+            patrickAudio.play().then(() => { this.textContent = '⏸'; }).catch(console.warn);
           } else {
-            patrickAudio.pause();
-            this.textContent = '▶';
+            patrickAudio.pause(); this.textContent = '▶';
           }
         });
       }
-
       if (button2) {
         button2.addEventListener('click', function () {
           if (this.textContent === '▶') {
-            audio.play().then(() => {
-              this.textContent = '⏸';
-            }).catch(console.warn);
+            audio.play().then(() => { this.textContent = '⏸'; }).catch(console.warn);
           } else {
-            audio.pause();
-            this.textContent = '▶';
+            audio.pause(); this.textContent = '▶';
           }
         });
       }
