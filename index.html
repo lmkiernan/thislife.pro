@@ -146,7 +146,7 @@
       font-size: 1.2rem;
       font-weight: 600;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      margin-left: 30px;
+      margin-left: 10px;
     }
 
     .stripe-description {
@@ -154,6 +154,35 @@
       font-size: 1rem;
       max-width: 250px;
       text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+      }
+
+      .middle-text {
+        font-size: 1.1rem;
+        width: 90%;
+      }
+
+      .btn-section {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .stripe-circles {
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .stripe-item {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
