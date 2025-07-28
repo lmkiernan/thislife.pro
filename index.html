@@ -78,12 +78,13 @@
     .label { color: white; margin-top: 0.5rem; }
     /* Responsive iPhone image */
     .iphone-img-desktop {
-      width: clamp(150px, 22.5vw, 200px);
+      width: clamp(120px, 20vw, 250px);
       position: absolute;
       left: 2rem;
-      top: 40%;
+      top: 20%;
       transform: translateY(-50%);
       z-index: 10;
+      transition: width 0.3s ease;
     }
     
 
@@ -140,11 +141,19 @@
       }
     }
     
-    /* Medium screens - hide when space is limited */
+    /* Medium screens - responsive sizing */
     @media (max-width: 1200px) and (min-width: 769px) {
       .iphone-img-desktop { 
-        width: clamp(112px, 15vw, 225px);
+        width: clamp(100px, 18vw, 200px);
         left: 1rem;
+      }
+    }
+    
+    /* Large screens - larger size */
+    @media (min-width: 1400px) {
+      .iphone-img-desktop {
+        width: clamp(150px, 25vw, 300px);
+        left: 3rem;
       }
     }
     
