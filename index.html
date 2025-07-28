@@ -4,15 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>this life website</title>
-  <!-- Load Montserrat with Bold weight -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      /* Base orb size and scaled values */
-      --orb-base: clamp(260px, 52vw, 1050px);
-      --orb-scaled: calc(var(--orb-base) * 0.2);
-      --orb-radius: calc(var(--orb-scaled) / 2);
-    }
     html, body {
       height: 100vh;
       width: 100vw;
@@ -21,164 +13,21 @@
       overflow: hidden;
     }
     body {
-      background: #18293a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #0a1929;
+      position: relative;
     }
-
-    .hero-wrapper {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      transform-origin: center center;
-      transition: transform 0.7s cubic-bezier(0.7,0.2,0.2,1.1), top 0.7s cubic-bezier(0.7,0.2,0.2,1.1);
-      z-index: 10;
-      pointer-events: none;
-    }
-    .hero-wrapper.moved {
-      top: 7px;
-      transform: translateX(-50%) scale(0.2);
-      transform-origin: top center;
-    }
-
-    .ball-container {
-      width: var(--orb-base);
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      border: 6px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      animation: ball-in 1.2s cubic-bezier(0.7,0.2,0.2,1.1);
-    }
-    .red-ball {
+    
+    .stripe {
+      position: absolute;
+      top: 66.67%;
+      left: 0;
       width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 60% 40%, #ff4b4b 0%, #da131d 80%, #d2262b 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    @keyframes ball-in {
-      0%   { transform: translateX(-600px); opacity: 0.7; }
-      70%  { transform: translateX(30px);  opacity: 1;   }
-      100% { transform: translateX(0);     opacity: 1;   }
-    }
-
-    h1 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      margin: 0;
-      color: #f5f5f5;
-      opacity: 0;
-      animation: fade-in 0.7s ease forwards;
-      animation-delay: 1.2s;
-      text-align: center;
-      font-size: clamp(4rem, 18vw, 12rem);
-      line-height: 1;
-      text-transform: none;
-    }
-    @keyframes fade-in {
-      to { opacity: 1; }
-    }
-
-    /* Play button styling */
-    .play-btn {
-      position: fixed;
-      top: calc(7px + var(--orb-scaled) + 80px);
-      left: calc(50% + var(--orb-radius) + 8px);
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #4eb3e6 0%, #1976d2 100%);
-      border: 6px solid rgba(255,255,255,0.3);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: auto;
-      box-shadow: 0 4px 16px rgba(30,60,120,0.15);
-      padding: 0;
-    }
-    .play-btn.visible {
-      opacity: 1;
-    }
-
-    .learn-btn {
-      top: calc(7px + var(--orb-scaled) + 240px);
-      left: calc(50% + var(--orb-radius) - 120px);
-      background: linear-gradient(135deg, #1976d2 0%, #4eb3e6 100%);
-    }
-
-    @media (max-width: 600px) {
-      .ball-container { border-width: 4px; }
-      h1 { font-size: clamp(2rem, 14vw, 5rem); }
-      .play-btn {
-        top: calc(7px + var(--orb-scaled) + 60px);
-        left: calc(50% + var(--orb-radius) + 6px);
-        width: 90px;
-        height: 90px;
-        font-size: 0.9rem;
-      }
-      .learn-btn {
-        top: calc(7px + var(--orb-scaled) + 170px);
-        left: calc(50% + var(--orb-radius) - 60px);
-      }
+      height: 16.67%;
+      background: #546e7a;
     }
   </style>
 </head>
 <body>
-  <div class="hero-wrapper">
-    <div class="ball-container">
-      <div class="red-ball">
-        <h1>This<br>Life</h1>
-      </div>
-    </div>
-  </div>
-
-  <!-- Audio element -->
-  <audio id="site-audio" src="examples.mp3" preload="auto"></audio>
-  <audio id="patrick-audio" src="/patrick_theory.mp3" preload="auto"></audio>
-  <button id="play-btn" class="play-btn">Hear Something Real</button>
-  <button id="learn-btn" class="play-btn learn-btn">But Why?</button>
-
-  <script>
-    const hero = document.querySelector('.hero-wrapper');
-    const btn  = document.getElementById('play-btn');
-    const audio= document.getElementById('site-audio');
-    const learnBtn = document.getElementById('learn-btn');
-    const patrickAudio = document.getElementById('patrick-audio');
-
-    // After orb animation, move + show button
-    setTimeout(() => {
-      hero.classList.add('moved');
-      btn.classList.add('visible');
-      learnBtn.classList.add('visible');
-    }, 1200);
-
-    // Play audio on click
-    btn.addEventListener('click', () => {
-      audio.currentTime = 0;
-      audio.play().catch(e => console.warn(e));
-    });
-
-    // Play patrick_theory.mp3 on 'But Why?' click
-    learnBtn.addEventListener('click', () => {
-      patrickAudio.currentTime = 0;
-      patrickAudio.play().catch(e => console.warn(e));
-    });
-  </script>
+  <div class="stripe"></div>
 </body>
 </html>
