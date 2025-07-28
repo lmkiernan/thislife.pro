@@ -7,10 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    html, body, h1, h2, h3, h4, h5, h6 {
-      margin: 0; padding: 0;
-    }
     html, body {
+      margin: 0; padding: 0;
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       background: #0a1929;
@@ -22,107 +20,143 @@
       align-items: center;
       text-align: center;
     }
+
+    /* Desktop: Full viewport, no vertical scroll */
+    @media (min-width: 769px) {
+      html, body {
+        height: 100vh;
+        overflow: hidden;
+      }
+      body { align-items: stretch; }
+    }
+
     .container {
-      width: 95%; max-width: none;
-      padding: 0.5rem 1rem; position: relative;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
     }
     .title {
-      font-size: clamp(1.7rem, 1vw, 3rem);
-      color: white; margin: 0.5rem 0 1rem 0;
+      font-size: clamp(3rem, 6vw, 6.5rem);
+      color: white;
+      margin: 1rem 0;
     }
     .subtitle {
-      font-size: clamp(1.4rem, 0.8vw, 2.2rem);
-      color: white; opacity: 0.8;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: white;
+      opacity: 0.8;
       margin-bottom: 1.5rem;
     }
     .middle-text {
       color: #4eb3e6;
-      font-size: clamp(1rem, 0.6vw, 1.8rem);
-      width: 50%; margin: 0 auto 2rem;
+      font-size: clamp(1rem, 2vw, 1.8rem);
+      width: 50%;
+      margin: 0 auto 2rem;
     }
+
     .btn-layout {
-      display: flex; justify-content: center;
-      align-items: center; flex-wrap: wrap;
-      gap: 1rem;
-      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 3rem;
     }
     .btn-section {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 1rem;
-    }
-    .buttons-row {
-      display: flex; align-items: flex-start; gap: 3rem;
-    }
-    .audio-buttons {
-      display: flex; flex-direction: column; gap: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
     }
     .join-button {
-      background: #0287ca; color: #ffffff;
+      background: #0287ca;
+      color: #ffffff;
       border: 3px solid rgb(164, 211, 232);
       border-radius: 14px;
       padding: 1rem 2.5rem;
       font-size: 1.5rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      margin-right: 0rem;
     }
     .join-button:hover { background: #777777; border-color: #5bc0de; }
     .circular-button {
-      width: 70px; height: 70px;
-      border-radius: 50%; font-size: 1.5rem; font-weight: 600;
-      border: none; cursor: pointer; transition: all 0.3s ease;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
     .circular-button:hover { transform: scale(1.1); }
     .circular-button-1 { background: #ff6b6b; color: white; }
     .circular-button-2 { background: #1e5875; color: white; }
-    .label { color: white; margin-top: 0.5rem; }
+    .label { color: white; margin: 0; }
+
     /* Responsive iPhone image */
     .iphone-img-desktop {
-      width: clamp(250px, 40vw, 500px); /* Bigger overall */
+      width: clamp(250px, 33vw, 600px);
       height: auto;
+      margin-top: 2rem;
     }
+
     .stripe {
-      width: 100%; background: #455a64;
+      width: 100%;
+      background: #455a64;
+      flex-shrink: 0;
       padding: 3rem 1rem;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
       margin-top: 3rem;
     }
     .stripe-circles {
-      display: flex; justify-content: center;
-      flex-wrap: wrap; gap: 3rem;
-      width: 100%; max-width: 1200px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      width: 100%;
+      max-width: 1200px;
     }
     .stripe-col {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
       width: 30%;
     }
     .stripe-item {
       background: #4eb3e6;
-      width: 180px; height: 180px;
-      border-radius: 50%; color: white;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      font-size: 1.2rem; font-weight: 600;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
       margin: 0 auto;
     }
     .stripe-title { color: white; font-size: 1.2rem; font-weight: 600; }
     .stripe-description {
-      color: white; font-size: 1rem;
-      text-align: center; max-width: 250px;
+      color: white;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 250px;
     }
+
     /* Mobile */
     @media (max-width: 768px) {
-      .title { font-size: 2.5rem; }
-      .subtitle { font-size: 1.5rem; }
-      .middle-text { font-size: 1.1rem; width: 90%; }
-      .btn-layout { flex-direction: column; }
+      .middle-text { width: 90%; }
+      .btn-layout { flex-direction: column; align-items: center; }
       .iphone-img-desktop { display: none; }
       .stripe-circles {
-        flex-direction: column; gap: 2rem;
-        justify-content: center; align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
       }
       .stripe-col {
         width: 90%;
@@ -133,22 +167,32 @@
         padding: 0 1rem;
       }
     }
-    /* Desktop */
+
+    /* Desktop: adjust button alignment and image size/position */
     @media (min-width: 769px) {
-      .container { padding: 2rem; }
-      .btn-layout { flex-direction: row; align-items: flex-start; gap: 3rem; margin-top: 2rem; }
-      .iphone-img-desktop { display: block; }
-      .btn-section { align-items: flex-start; }
-      .buttons-row { gap: 4rem; }
-      .audio-buttons { gap: 2rem; }
-      .btn-section .label { margin: 0; }
-      .btn-section .label:first-of-type { font-size: 1.3rem; }
-      .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
+      /* align entire btn-layout under subtitle left edge */
+      .btn-layout {
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+      /* enlarge & drop the phone * into left third */
+      .iphone-img-desktop {
+        width: clamp(350px, 40vw, 700px);
+        margin-top: 8rem;
+      }
+      /* shift join button to subtitle's left */
+      .btn-section {
+        margin-left: calc(50% - 400px); /* subtitle width calc: half of 50% container (assumes middle-text max 800px) */
+      }
+      .btn-section .join-button {
+        margin-bottom: 2rem;
+      }
+      /* ensure visible order */
+      .btn-section > div { margin-top: 1rem; }
+
+      /* keep stripe centered */
       .stripe { flex-direction: row; justify-content: center; padding: 4rem 2rem; }
-      .stripe-circles { justify-content: center; }
-      .stripe-col { width: 30%; margin: 0; }
-      .stripe-item { margin: 0; }
-      .stripe-description { max-width: 250px; padding: 0; }
+      .stripe-col { width: 30%; }
     }
   </style>
 </head>
@@ -162,45 +206,44 @@
     <div class="btn-layout">
       <img src="thislife.png" alt="This Life iPhone" class="iphone-img-desktop">
       <div class="btn-section">
-        <div class="buttons-row">
-          <button class="join-button">Join the experiment</button>
-          <div class="audio-buttons">
-            <div>
-              <button id="play-button-1" class="circular-button circular-button-1">▶</button>
-              <div class="label">Theory</div>
-              <div class="label">~1 min explanation of the idea</div>
-            </div>
-            <div>
-              <button id="play-button-2" class="circular-button circular-button-2">▶</button>
-              <div class="label">Experience</div>
-              <div class="label">~1 min montage of early members</div>
-            </div>
-          </div>
+        <button class="join-button">Join the experiment</button>
+        <div>
+          <button id="play-button-1" class="circular-button circular-button-1">▶</button>
+          <div class="label">Theory</div>
+          <div class="label">~1 min explanation of the idea</div>
+        </div>
+        <div>
+          <button id="play-button-2" class="circular-button circular-button-2">▶</button>
+          <div class="label">Experience</div>
+          <div class="label">~1 min montage of early members</div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="stripe">
     <div class="stripe-circles">
       <div class="stripe-col">
         <div class="stripe-item">my spoken<br>notes</div>
         <div class="stripe-title">Just you and possibly God</div>
-        <div class="stripe-description">talk to yourself. say anything that might help move you toward more peace-inducing energy.</div>
+        <div class="stripe-description">talk to yourself and/or God & record it so you'll keep going & (2) an experiment thing</div>
       </div>
       <div class="stripe-col">
         <div class="stripe-item" style="background: #ffffff; color: #333333;">one of the<br>day</div>
         <div class="stripe-title">one-to-many</div>
-        <div class="stripe-description">with their permission, we all hear what one person said as they tried to steer their life toward greater peace — when they had no reason to perform</div>
+        <div class="stripe-description">we all hear what one person said as they tried to steer their life toward greater peace — when they had no reason to perform</div>
       </div>
       <div class="stripe-col">
         <div class="stripe-item" style="background: #3a8acb;">spiritual<br>hitchhiking</div>
         <div class="stripe-title">1-to-1</div>
-        <div class="stripe-description">two strangers, paired for just a moment. if you both choose, you can exchange a single text to wish each other well.</div>
+        <div class="stripe-description">two strangers temporarily can hear one another’s words; option to exchange a single text</div>
       </div>
     </div>
   </div>
+
   <audio id="examples-audio" src="examples.mp3" preload="auto"></audio>
   <audio id="patrick-audio" src="patrick_theory.mp3" preload="auto"></audio>
+
   <script>
     setTimeout(function () {
       const button1 = document.getElementById('play-button-1');
@@ -210,7 +253,7 @@
       if (button1) {
         button1.addEventListener('click', function () {
           if (this.textContent === '▶') {
-            patrickAudio.play().then(() => { this.textContent = 'll'; }).catch(console.warn);
+            patrickAudio.play().then(() => { this.textContent = '⏸'; }).catch(console.warn);
           } else {
             patrickAudio.pause(); this.textContent = '▶';
           }
@@ -219,7 +262,7 @@
       if (button2) {
         button2.addEventListener('click', function () {
           if (this.textContent === '▶') {
-            audio.play().then(() => { this.textContent = 'll'; }).catch(console.warn);
+            audio.play().then(() => { this.textContent = '⏸'; }).catch(console.warn);
           } else {
             audio.pause(); this.textContent = '▶';
           }
