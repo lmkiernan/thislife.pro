@@ -20,57 +20,35 @@
       align-items: center;
       text-align: center;
     }
-
-    /* Desktop: Full viewport, no page scroll */
-    @media (min-width: 769px) {
-      html, body {
-        height: 100vh;
-        overflow: hidden;
-      }
-      body {
-        align-items: stretch;
-      }
-    }
-
     .container {
-      width: 100%;
-      max-width: 1440px;
-      padding: 2rem;
-      position: relative;
+      width: 100%; max-width: 1440px;
+      padding: 2rem; position: relative;
     }
     .title {
       font-size: clamp(3rem, 6vw, 6.5rem);
-      color: white;
-      margin: 1rem 0;
+      color: white; margin: 1rem 0;
     }
     .subtitle {
       font-size: clamp(1.5rem, 3vw, 2.5rem);
-      color: white;
-      opacity: 0.8;
+      color: white; opacity: 0.8;
       margin-bottom: 1.5rem;
     }
     .middle-text {
       color: #4eb3e6;
       font-size: clamp(1rem, 2vw, 1.8rem);
-      width: 80%;
-      margin: 0 auto 2rem;
+      width: 80%; margin: 0 auto 2rem;
     }
     .btn-layout {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      display: flex; justify-content: center;
+      align-items: center; flex-wrap: wrap;
       gap: 2rem;
     }
     .btn-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1rem;
     }
     .join-button {
-      background: #403f3f;
-      color: white;
+      background: #403f3f; color: white;
       border: 3px solid #4eb3e6;
       border-radius: 14px;
       padding: 1rem 2.5rem;
@@ -80,14 +58,9 @@
     }
     .join-button:hover { background: #777777; border-color: #5bc0de; }
     .circular-button {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      width: 70px; height: 70px;
+      border-radius: 50%; font-size: 1.5rem; font-weight: 600;
+      border: none; cursor: pointer; transition: all 0.3s ease;
     }
     .circular-button:hover { transform: scale(1.1); }
     .circular-button-1 { background: #4eb3e6; color: white; }
@@ -99,53 +72,36 @@
       height: auto;
     }
     .stripe {
-      width: 100%;
-      background: #455a64;
-      /* For desktop, keep stripe visible within viewport */
-      flex-shrink: 0;
+      width: 100%; background: #455a64;
       padding: 3rem 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 2rem;
       margin-top: 3rem;
     }
     .stripe-circles {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 3rem;
-      width: 100%;
-      max-width: 1200px;
+      display: flex; justify-content: center;
+      flex-wrap: wrap; gap: 3rem;
+      width: 100%; max-width: 1200px;
     }
     .stripe-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
       width: 30%;
     }
     .stripe-item {
       background: #4eb3e6;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.2rem;
-      font-weight: 600;
+      width: 180px; height: 180px;
+      border-radius: 50%; color: white;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      font-size: 1.2rem; font-weight: 600;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
       margin: 0 auto;
     }
     .stripe-title { color: white; font-size: 1.2rem; font-weight: 600; }
     .stripe-description {
-      color: white;
-      font-size: 1rem;
-      text-align: center;
-      max-width: 250px;
+      color: white; font-size: 1rem;
+      text-align: center; max-width: 250px;
     }
     /* Mobile */
     @media (max-width: 768px) {
@@ -155,10 +111,8 @@
       .btn-layout { flex-direction: column; }
       .iphone-img-desktop { display: none; }
       .stripe-circles {
-        flex-direction: column;
-        gap: 2rem;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column; gap: 2rem;
+        justify-content: center; align-items: center;
       }
       .stripe-col {
         width: 90%;
@@ -214,7 +168,6 @@
       </div>
     </div>
   </div>
-
   <div class="stripe">
     <div class="stripe-circles">
       <div class="stripe-col">
@@ -234,10 +187,8 @@
       </div>
     </div>
   </div>
-
   <audio id="examples-audio" src="examples.mp3" preload="auto"></audio>
   <audio id="patrick-audio" src="patrick_theory.mp3" preload="auto"></audio>
-
   <script>
     setTimeout(function () {
       const button1 = document.getElementById('play-button-1');
