@@ -136,7 +136,17 @@
       .btn-layout { flex-direction: column; }
       .btn-section { align-items: flex-start; }
       .buttons-row { flex-direction: column; gap: 2rem; align-items: flex-start; }
-      .audio-buttons { flex-direction: column; gap: 2rem; align-items: flex-start; }
+      .audio-buttons { 
+        flex-direction: column; 
+        gap: 2rem; 
+        width: 100%;
+      }
+      .audio-buttons > div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+      }
       .iphone-img-desktop { display: none; }
       .iphone-img-mobile { 
         display: block; 
