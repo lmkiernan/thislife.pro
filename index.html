@@ -88,6 +88,13 @@
       transition: width 0.3s ease;
     }
     
+    /* Mobile iPhone image */
+    .iphone-img-mobile {
+      display: none;
+      width: 200px;
+      height: auto;
+    }
+    
 
     .stripe {
       width: 100%; background: #455a64;
@@ -130,12 +137,10 @@
       .btn-section { align-items: center; }
       .buttons-row { flex-direction: column; gap: 2rem; }
       .audio-buttons { flex-direction: column; gap: 2rem; }
-      .iphone-img-desktop { 
+      .iphone-img-desktop { display: none; }
+      .iphone-img-mobile { 
         display: block; 
-        position: static;
-        width: 200px;
-        margin: 2rem auto 0;
-        transform: none;
+        margin: 2rem auto;
       }
       .stripe-circles {
         flex-direction: column; gap: 2rem;
@@ -207,6 +212,7 @@
       <div class="btn-section">
         <div class="buttons-row">
           <button class="join-button">Join the experiment</button>
+          <img src="thislife.png" alt="This Life iPhone" class="iphone-img-mobile">
           <div class="audio-buttons">
             <div>
               <button id="play-button-1" class="circular-button circular-button-1">▶</button>
