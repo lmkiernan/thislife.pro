@@ -113,6 +113,80 @@
       align-items: center; gap: 0.5rem;
       width: 30%;
     }
+    
+    /* Carousel styles for mobile */
+    .carousel-container {
+      display: none;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .carousel-track {
+      display: flex;
+      transition: transform 0.3s ease;
+      width: 100%;
+    }
+    
+    .carousel-slide {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0 1rem;
+    }
+    
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .carousel-btn {
+      background: #4eb3e6;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+      background: #3a8acb;
+      transform: scale(1.1);
+    }
+    
+    .carousel-btn:disabled {
+      background: #666;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .carousel-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #666;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .carousel-indicator.active {
+      background: #4eb3e6;
+    }
     .stripe-item {
       background: #4eb3e6;
       width: 180px; height: 180px;
@@ -159,8 +233,10 @@
         margin: 2rem auto;
       }
       .stripe-circles {
-        flex-direction: column; gap: 2rem;
-        justify-content: center; align-items: center;
+        display: none;
+      }
+      .carousel-container {
+        display: block;
       }
       .stripe-col {
         width: 90%;
@@ -263,6 +339,36 @@
         <div class="stripe-description">two strangers, paired for just a moment. if you both choose, you can exchange a single text to wish each other well.</div>
       </div>
     </div>
+    
+    <!-- Mobile Carousel -->
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <div class="stripe-item">my spoken<br>notes</div>
+          <div class="stripe-title">Just you and possibly God</div>
+          <div class="stripe-description">talk to yourself. say anything that might help move you toward more peace-inducing energy.</div>
+        </div>
+        <div class="carousel-slide">
+          <div class="stripe-item" style="background: #ffffff; color: #333333;">one of the<br>day</div>
+          <div class="stripe-title">one-to-many</div>
+          <div class="stripe-description">with their permission, we all hear what one person said as they tried to steer their life toward greater peace — when they had no reason to perform</div>
+        </div>
+        <div class="carousel-slide">
+          <div class="stripe-item" style="background: #3a8acb;">spiritual<br>hitchhiking</div>
+          <div class="stripe-title">1-to-1</div>
+          <div class="stripe-description">two strangers, paired for just a moment. if you both choose, you can exchange a single text to wish each other well.</div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prev-btn">‹</button>
+        <button class="carousel-btn" id="next-btn">›</button>
+      </div>
+      <div class="carousel-indicators">
+        <div class="carousel-indicator active" data-slide="0"></div>
+        <div class="carousel-indicator" data-slide="1"></div>
+        <div class="carousel-indicator" data-slide="2"></div>
+      </div>
+    </div>
   </div>
   <audio id="examples-audio" src="examples.mp3" preload="auto"></audio>
   <audio id="patrick-audio" src="patrick_theory.mp3" preload="auto"></audio>
@@ -291,6 +397,61 @@
         });
       }
     }, 100);
+    
+    // Carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const track = document.querySelector('.carousel-track');
+      const slides = document.querySelectorAll('.carousel-slide');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const indicators = document.querySelectorAll('.carousel-indicator');
+      
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update button states
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === totalSlides - 1;
+      }
+      
+      function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+          updateCarousel();
+        }
+      }
+      
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateCarousel();
+        }
+      }
+      
+      function goToSlide(index) {
+        currentSlide = index;
+        updateCarousel();
+      }
+      
+      // Event listeners
+      if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+      if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+      
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+      });
+      
+      // Initialize
+      updateCarousel();
+    });
   </script>
 </body>
 </html>
