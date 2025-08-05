@@ -68,6 +68,14 @@
       margin-right: 0rem;
     }
     .join-button:hover { background: #777777; border-color: #5bc0de; }
+    
+    /* Prevent hover effects on touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .join-button:hover {
+        background: #0287ca;
+        border-color: rgb(164, 211, 232);
+      }
+    }
     .circular-button {
       width: 70px; height: 70px;
       border-radius: 50%; font-size: 1.5rem; font-weight: 600;
