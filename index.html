@@ -121,6 +121,7 @@
       max-width: 400px;
       margin: 0 auto;
       position: relative;
+      padding: 0 50px;
     }
     
     .carousel-track {
@@ -139,14 +140,19 @@
     }
     
     .carousel-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
       display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 10;
     }
     
     .carousel-btn {
-      background: #4eb3e6;
+      background: rgba(78, 179, 230, 0.9);
       color: white;
       border: none;
       border-radius: 50%;
@@ -155,17 +161,13 @@
       font-size: 1.2rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      pointer-events: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     
     .carousel-btn:hover {
-      background: #3a8acb;
+      background: rgba(58, 138, 203, 0.9);
       transform: scale(1.1);
-    }
-    
-    .carousel-btn:disabled {
-      background: #666;
-      cursor: not-allowed;
-      transform: none;
     }
     
     .carousel-indicators {
@@ -416,24 +418,16 @@
         indicators.forEach((indicator, index) => {
           indicator.classList.toggle('active', index === currentSlide);
         });
-        
-        // Update button states
-        prevBtn.disabled = currentSlide === 0;
-        nextBtn.disabled = currentSlide === totalSlides - 1;
       }
       
       function nextSlide() {
-        if (currentSlide < totalSlides - 1) {
-          currentSlide++;
-          updateCarousel();
-        }
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
       }
       
       function prevSlide() {
-        if (currentSlide > 0) {
-          currentSlide--;
-          updateCarousel();
-        }
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
       }
       
       function goToSlide(index) {
