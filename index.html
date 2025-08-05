@@ -126,7 +126,6 @@
     
     .carousel-track {
       display: flex;
-      transition: transform 0.3s ease;
       width: 100%;
     }
     
@@ -161,6 +160,11 @@
     .carousel-btn:hover {
       background: #3a8acb;
       transform: scale(1.1);
+    }
+    
+    .carousel-btn:active {
+      background: #2c5f8a;
+      transform: scale(0.95);
     }
     .stripe-item {
       background: #4eb3e6;
@@ -392,9 +396,28 @@
         updateCarousel();
       }
       
+      function addClickEffect(button) {
+        button.style.background = '#2c5f8a';
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          button.style.background = '';
+          button.style.transform = '';
+        }, 200);
+      }
+      
       // Event listeners
-      if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-      if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          nextSlide();
+          addClickEffect(this);
+        });
+      }
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          prevSlide();
+          addClickEffect(this);
+        });
+      }
       
       // Initialize
       updateCarousel();
