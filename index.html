@@ -109,6 +109,14 @@
       padding: 3rem 1rem;
       display: flex; flex-direction: column;
       align-items: center; gap: 2rem;
+      margin-top: 0;
+    }
+    
+    .stripe-light {
+      width: 100%; background: #5a6b75;
+      padding: 1.5rem 1rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 2rem;
       margin-top: 3rem;
     }
     .stripe-circles {
@@ -278,8 +286,9 @@
       .btn-section .label { margin: 0; }
       .btn-section .label:first-of-type { font-size: 1.3rem; }
       .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
-      .stripe { flex-direction: row; justify-content: space-between; padding: 4rem 2rem; }
-      .stripe-circles { justify-content: space-between; width: 100%; }
+      .stripe { flex-direction: row; justify-content: center; padding: 4rem 2rem; }
+      .stripe-light { padding: 2rem; }
+      .stripe-circles { justify-content: center; width: 100%; }
       .stripe-col { width: 30%; margin: 0; }
       .stripe-item { margin: 0; }
       .stripe-description { max-width: 250px; padding: 0; }
@@ -314,6 +323,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="stripe-light">
   </div>
   <div class="stripe">
     <div class="stripe-circles">
