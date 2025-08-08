@@ -1,26 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frequently Asked Questions</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-        }
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>This Life – Q&A</title>
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#151923; --muted:#9aa4b2; --text:#e8ecf1; --accent:#8aa8ff;
+      --maxw: 980px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky; top:0; z-index:5; backdrop-filter:saturate(1.4) blur(8px); background:color-mix(in oklab, var(--bg) 88%, transparent); border-bottom:1px solid #1c2230}
+    header .wrap{max-width:var(--maxw); margin:0 auto; padding:14px 20px; display:flex; gap:16px; align-items:center; justify-content:space-between}
+    header h1{font-size:20px; margin:0}
+    main{max-width:var(--maxw); margin:0 auto; padding:24px 20px 60px}
+    .note{margin:12px 0 22px; color:var(--muted)}
+    .toc{display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin:18px 0 26px}
+    .toc a{display:block; padding:10px 12px; border:1px solid #232a3a; border-radius:10px; background:var(--panel)}
+    section{margin:32px 0; padding:16px; border:1px solid #232a3a; border-radius:14px; background:var(--panel)}
+    section h2{margin:0 0 8px; font-size:18px; letter-spacing:.2px}
+    details{border:1px solid #273048; border-radius:12px; margin:10px 0; overflow:hidden; background:#0f1422}
+    summary{cursor:pointer; padding:14px 16px; font-weight:600; list-style:none}
+    summary::-webkit-details-marker{display:none}
+    details[open] summary{border-bottom:1px solid #273048}
+    .answer{padding:14px 16px; color:var(--muted)}
+    ul{margin:0 0 0 20px}
+    .pill{display:inline-block; padding:.2rem .6rem; border:1px solid #2c3650; border-radius:999px; color:var(--muted); font-size:.85rem}
+    footer{max-width:var(--maxw); margin:28px auto 60px; padding:0 20px; color:var(--muted)}
+    .sr{position:absolute; left:-9999px}
+  </style>
 </head>
 <body>
-    <h1>Frequently Asked Questions</h1>
+  <header>
+    <div class="wrap">
+      <h1>This Life – Q&A</h1>
+      <span class="pill">Living in greater peace with yourself & reality</span>
+    </div>
+  </header>
+  <main>
+    <p class="note"><strong>Please note:</strong> Every aspect of this app — including this Q&A — will be periodically updated and improved (if it’s working).</p>
+
+    <nav aria-label="Table of contents" class="toc">
+      <a href="#general">GENERAL</a>
+      <a href="#features">FEATURES</a>
+      <a href="#privacy">PRIVACY & SAFETY</a>
+      <a href="#use">USE & BOUNDARIES</a>
+      <a href="#ethics">ETHICS & BEHAVIOR</a>
+      <a href="#about">ABOUT / HELP / FEEDBACK</a>
+    </nav>
+
+    <!-- GENERAL -->
+    <section id="general">
+      <h2>GENERAL</h2>
+
+      <details>
+        <summary>What is This Life?</summary>
+        <div class="answer">
+          <p>It’s an experiment. We’re testing a tool we hope can make meaningful emotional or spiritual progress feel less impossible.</p>
+          <p>The core of the tool (this app) is a design — a new framework through which people can work together on this most difficult and central problem of life without the usual obstacles: phoniness / performance / piousness / etc., or awkward social entanglements.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do you define “meaningful emotional or spiritual progress”?</summary>
+        <div class="answer">
+          <p>Lasting progress in living in greater peace with yourself and reality, as opposed to staying stuck in — or becoming more deeply stuck in — unhelpful negative emotion.</p>
+          <p>Note: spiritual progress doesn’t mean you’ll have a “happy life.” Good or bad luck can happen to anyone. But if you figure out how to be less vulnerable to unhelpful negative emotion and more capable of living in peace with yourself, you’ll be better off no matter what.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What should my personal goal be?</summary>
+        <div class="answer">
+          <p>Any increase in peace with yourself and reality is a win. Or said differently — denying negative emotion any amount of a greater victory over you is a win.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What’s the goal of the experiment?</summary>
+        <div class="answer">
+          <p>Our hope is that This Life works — that it helps us and other people live in greater peace with ourselves and reality. If it does, we’ll keep refining the experience while preserving its core, and we’ll put money toward facilitating real-world change, with top priorities including homelessness and mental health reform.</p>
+          <p>If This Life doesn’t catch on or we can’t steer it effectively, our second hope is that others working on this challenge can learn something useful from what we’ve tried. Even if both of those fail, we’d still consider This Life worth it if it helps call attention to the idea that society must find new, non-phony ways to make the emotional challenge feel less impossible.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What type of app is this?</summary>
+        <div class="answer">
+          <p>A semi-social audio app. When we’re feeling a little more avant-garde, we call it a psycho-spiritual art project in which everyone can participate.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is this therapy?</summary>
+        <div class="answer">
+          <p>No. You won’t be with a licensed therapist. Facing yourself isn’t risk-free. If you’re feeling fragile, seek professional help. We’re fans of great therapists.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What if I’m already in therapy?</summary>
+        <div class="answer">
+          <p>Great. This Life — especially Spoken Notes — can be a strong complement. Spoken Notes capture emotion in the wild, without the distractions of a therapy setting (eye contact, time limits, billing stress). Some therapists may find these recordings deeply useful in exploring emotional nuance together.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Who is this for?</summary>
+        <div class="answer">
+          <p>Anyone over 18 who wants to live in greater peace with themselves and reality. (We plan to eventually expand to 16+ with stronger onboarding and a separate peer pool.) Currently English only.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What religion is it for? Can atheists use it?</summary>
+        <div class="answer">
+          <p>Anyone, from any religion or no religion. The only requirement: you want to live in greater peace with yourself and reality. This doesn’t mean you have to believe you can live in greater peace with yourself. We welcome the poor in spirit and others who regularly feel hopeless. All you need is to want things to be better.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why do you call it an experiment?</summary>
+        <div class="answer">
+          <p>Because we’re testing a new idea. We’ve tried it privately and in small groups and found it valuable. Now we’re hoping to test it at scale.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+      <h2>FEATURES</h2>
+
+      <details>
+        <summary>How does it work?</summary>
+        <div class="answer">
+          <p>Three primary experiences:</p>
+          <ol>
+            <li>Recording a private note for yourself and/or your God.</li>
+            <li>Temporarily connecting 1‑on‑1 with a stranger and hearing part of what each other said.</li>
+            <li>A group experience (“One of the Day”) where everyone hears one person’s attempt to live in greater peace with themselves when they had no incentive to perform.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details>
+        <summary>What are Spoken Notes?</summary>
+        <div class="answer">
+          <p>A private space to talk to yourself (and/or your God). An audio whiteboard for emotional or spiritual experiments. No one hears them unless you share.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is Spiritual Hitchhiking?</summary>
+        <div class="answer">
+          <p>The morning after you record a non‑private Spoken Note, you’ll be paired with one stranger for the day. You can each hear the first or last 3 minutes of the other’s note, and optionally send one goodwill message.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is One of the Day?</summary>
+        <div class="answer">
+          <p>A short, edited piece from a member who agreed to share something intimate in the hope it might help others navigate their own emotional/spiritual challenges. Posted three times a week.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What is Wit & Wisdom?</summary>
+        <div class="answer">
+          <p>On days without a One of the Day, we post a short video clip worth passing on — something to help us see the challenge more clearly and/or want to keep going.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How often can I use each part of the app?</summary>
+        <div class="answer">
+          <ul>
+            <li><strong>Spoken Notes:</strong> Unlimited</li>
+            <li><strong>Spiritual Hitchhiking:</strong> Once per day</li>
+            <li><strong>One of the Day:</strong> 3× per week (Mon, Wed, Fri)</li>
+            <li><strong>Wit & Wisdom:</strong> 3× per week (Tue, Thu, Sun)</li>
+            <li><strong>Day off:</strong> Saturday (no new public content; private features still available)</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>How long is group content available?</summary>
+        <div class="answer">
+          <p>We plan to keep no more than 12 <em>One of the Day</em> episodes in the archive at a time. The goal is to have people connect to something emotionally useful and then return to real life.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- PRIVACY & SAFETY -->
+    <section id="privacy">
+      <h2>PRIVACY & SAFETY</h2>
+
+      <details>
+        <summary>Who hears my recordings?</summary>
+        <div class="answer">
+          <p>No one, unless you share them (1‑on‑1 or with the community).</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Could I be featured as One of the Day without permission?</summary>
+        <div class="answer">
+          <p>Absolutely not. Only with your explicit consent. You can withdraw that consent anytime.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I delete a recording?</summary>
+        <div class="answer">
+          <p>Yes, anytime.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Do you sell or share my data?</summary>
+        <div class="answer">
+          <p>No. Never. We never will. It would violate every principle of this project.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is the app anonymous?</summary>
+        <div class="answer">
+          <p>Yes. No real names or contact info are shown.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- USE & BOUNDARIES -->
+    <section id="use">
+      <h2>USE & BOUNDARIES</h2>
+
+      <details>
+        <summary>Do I have to talk, or can I just listen?</summary>
+        <div class="answer">
+          <p>You can listen forever without speaking and remain a full member in good standing.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I respond to someone?</summary>
+        <div class="answer">
+          <p>In Spiritual Hitchhiking, you can send one goodwill text. You can also comment on One of the Day.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I record more than once a day?</summary>
+        <div class="answer">
+          <p>Yes — Spoken Notes are unlimited. Hitchhiking is once a day.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I share content on social media?</summary>
+        <div class="answer">
+          <p>You can share a 30‑second clip from One of the Day. Spoken Notes are yours to share — though that’s not the app’s purpose.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Is there an Android version?</summary>
+        <div class="answer">
+          <p>Not yet. We’re starting with iPhone (about 60% of US market). If we gain any traction, creating an Android version is our top priority.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ETHICS & BEHAVIOR -->
+    <section id="ethics">
+      <h2>ETHICS & BEHAVIOR</h2>
+
+      <details>
+        <summary>What’s the Pledge of Basic Human Decency?</summary>
+        <div class="answer">
+          <p>When joining, you agreed to:</p>
+          <ul>
+            <li>Treat other members with decency and thoughtfulness.</li>
+            <li>Keep members’ content confidential.</li>
+            <li>Avoid phoniness/performance.</li>
+            <li>Avoid political content.</li>
+            <li>Avoid judging or giving advice.</li>
+            <li>Avoid discussing harm to self or others. <em>* If you feel overwhelmed, call 911 or use a helpline.</em></li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I record someone else?</summary>
+        <div class="answer">
+          <p>No — only your own voice.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What if someone talks about suicide or harm?</summary>
+        <div class="answer">
+          <p>Flag it using the “outlier” button. We can’t provide crisis support, but we’ll surface resources and encourage urgent help.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ABOUT / HELP / FEEDBACK -->
+    <section id="about">
+      <h2>ABOUT / HELP / FEEDBACK</h2>
+
+      <details>
+        <summary>Why not run This Life as a nonprofit?</summary>
+        <div class="answer">
+          <p>Four reasons often come up:</p>
+          <ol>
+            <li><strong>Speed:</strong> Grants, donations, and other funding are hard to come by for a non‑profit with no traction. Time is of the essence for the emotional/spiritual challenge.</li>
+            <li><strong>Control:</strong> It’s difficult to run a spiritual project; doing it with a 3+ person board can be even harder, especially if it catches on.</li>
+            <li><strong>Hiring:</strong> If the app grows, we need to bring on great people quickly — much harder at a non‑profit.</li>
+            <li><strong>Regulatory:</strong> Nonprofit paperwork is a nightmare and would steal time from our mission.</li>
+          </ol>
+          <p>We also believe it would be garish to make huge profits from this project. If successful, we’ll use money to fund physical‑world progress (top priorities: homelessness, mental health reform). Early investors have agreed to a cap on returns. If This Life is successful, we may later form a small nonprofit to run grant‑funded or charitable projects, while keeping the main app for‑profit for agility.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I help?</summary>
+        <div class="answer">
+          <p>Yes. We need help with creativity, tech, and spreading the word. Patreon is coming soon. We love working with geniuses!</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I send feedback?</summary>
+        <div class="answer">
+          <p>Use the app’s feedback button or email us directly.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>© This Life — Q&A. Built as a clean, responsive HTML representation of the original FAQ.</p>
+  </footer>
 </body>
 </html>
