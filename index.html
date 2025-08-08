@@ -291,13 +291,27 @@
       .btn-section .label:first-of-type { font-size: 1.3rem; }
       .title { font-size: 4rem; }
       .subtitle { font-size: 2rem; }
-              .content-group {
-          background: rgba(83, 168, 239, 0.2);
-          border-radius: 20px;
-          padding: 3rem;
-          margin: 2rem 0;
-          border: 2px solid rgba(83, 168, 239, 0.5);
-        }
+                    .content-group {
+        background: rgba(83, 168, 239, 0.2);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 2rem 0;
+        border: 2px solid rgba(83, 168, 239, 0.5);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+      }
+      
+      .content-group .middle-text {
+        width: 40%;
+        margin: 0 0 2rem 0;
+        text-align: left;
+      }
+      
+      .content-group .btn-layout {
+        width: 40%;
+        margin: 0;
+      }
       .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
       .stripe { flex-direction: row; justify-content: center; padding: 4rem 2rem; }
       .stripe-light { 
