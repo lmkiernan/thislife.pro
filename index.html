@@ -7,56 +7,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    html, body, h1, h2, h3, h4, h5, h6 {
-      margin: 0; padding: 0;
-    }
+    html, body, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
     html, body {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       background: #0a1929;
       overflow-x: hidden;
     }
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .container {
-      width: 95%; max-width: none;
-      padding: 0.5rem 1rem; position: relative;
-    }
-    .title {
-      font-size: 1.1vw;
-      color: white; margin: 0.5rem 0 1rem 0;
-    }
-    .subtitle {
-      font-size: 0.64vw;
-      color: white; opacity: 0.8;
-      margin-bottom: 1.5rem;
-    }
+    body { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+    .container { width: 95%; max-width: none; padding: 0.5rem 1rem; position: relative; }
+    .title { font-size: 1.1vw; color: white; margin: 0.5rem 0 1rem 0; }
+    .subtitle { font-size: 0.64vw; color: white; opacity: 0.8; margin-bottom: 1.5rem; }
+
     .middle-text {
       color: #e0e0e0;
       font-size: clamp(1rem, 0.6vw, 1.8rem);
       width: 50%; margin: 0 auto 2rem auto;
       text-align: left;
     }
+
     .btn-layout {
-      display: flex; justify-content: center;
-      align-items: center; flex-wrap: wrap;
-      gap: 1rem;
-      width: 100%;
+      display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+      gap: 1rem; width: 100%;
     }
-    .btn-section {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 1rem;
-    }
-    .buttons-row {
-      display: flex; align-items: flex-start; gap: 3rem;
-    }
-    .audio-buttons {
-      display: flex; flex-direction: column; gap: 1.5rem;
-    }
+    .audio-buttons { display: flex; flex-direction: column; gap: 1.5rem; }
+
     .join-button {
       background: #ffffff; color: #000080;
       border: 3px solid rgb(164, 211, 232);
@@ -68,282 +44,154 @@
       margin-right: 0rem;
     }
     .join-button:hover { background: #f0f0f0; border-color: #5bc0de; }
-    
+
     /* Prevent hover effects on touch devices */
     @media (hover: none) and (pointer: coarse) {
-      .join-button:hover {
-        background: #ffffff;
-        border-color: rgb(164, 211, 232);
-      }
+      .join-button:hover { background: #ffffff; border-color: rgb(164, 211, 232); }
     }
+
     .circular-button {
-      width: 70px; height: 70px;
-      border-radius: 50%; font-size: 1.5rem; font-weight: 600;
+      width: 70px; height: 70px; border-radius: 50%; font-size: 1.5rem; font-weight: 600;
       border: none; cursor: pointer; transition: all 0.3s ease;
     }
     .circular-button:hover { transform: scale(1.1); }
     .circular-button-1 { background: #5385b7; color: white; }
     .circular-button-2 { background: #5385b7; color: white; }
+
     .label { color: white; margin-top: 0.5rem; }
-    /* Responsive iPhone image */
+
+    /* Responsive iPhone image (absolute) */
     .iphone-img-desktop {
       width: clamp(120px, 20vw, 250px);
-      position: absolute;
-      left: 2rem;
-      top: 15%;
-      transform: translateY(-50%);
-      z-index: 10;
-      transition: width 0.3s ease;
+      position: absolute; left: 2rem; top: 15%;
+      transform: translateY(-50%); z-index: 10; transition: width 0.3s ease;
     }
-    
+
     /* Mobile iPhone image */
-    .iphone-img-mobile {
-      display: none;
-      width: 200px;
-      height: auto;
-    }
-    
+    .iphone-img-mobile { display: none; width: 200px; height: auto; }
 
     .stripe {
-      width: 100%; background: #455a64;
-      padding: 3rem 1rem;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 2rem;
-      margin-top: 0;
+      width: 100%; background: #455a64; padding: 3rem 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 0;
     }
-    
     .stripe-light {
-      width: 100%; background: #5a6b75;
-      padding: 3rem 1rem;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 2rem;
-      margin-top: 3rem;
+      width: 100%; background: #5a6b75; padding: 3rem 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 3rem;
     }
     .stripe-circles {
-      display: flex; justify-content: center;
-      flex-wrap: wrap; gap: 3rem;
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 3rem;
       width: 100%; max-width: 1200px;
     }
-    .stripe-col {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 0.5rem;
-      width: 30%;
-    }
-    
-    /* Carousel styles for mobile */
-    .carousel-container {
-      display: none;
-      width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .carousel-track {
-      display: flex;
-      width: 100%;
-    }
-    
-    .carousel-slide {
-      min-width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0 1rem;
-    }
-    
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .carousel-btn {
-      background: #4eb3e6;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .carousel-btn:hover {
-      background: #3a8acb;
-      transform: scale(1.1);
-    }
-    
-    .carousel-btn:active {
-      background: #2c5f8a;
-      transform: scale(0.95);
-    }
-    
-    /* Prevent hover effects on touch devices */
-    @media (hover: none) and (pointer: coarse) {
-      .carousel-btn:hover {
-        background: #4eb3e6;
-        transform: none;
-      }
-    }
+    .stripe-col { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 30%; }
     .stripe-item {
-      background: #4eb3e6;
-      width: 180px; height: 180px;
-      border-radius: 50%; color: white;
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      font-size: 1.2rem; font-weight: 600;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      margin: 0 auto;
+      background: #4eb3e6; width: 180px; height: 180px; border-radius: 50%; color: white;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      font-size: 1.2rem; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,0.2); margin: 0 auto;
     }
     .stripe-title { color: white; font-size: 1.2rem; font-weight: 600; }
-    .stripe-description {
-      color: white; font-size: 1rem;
-      text-align: center; max-width: 250px;
+    .stripe-description { color: white; font-size: 1rem; text-align: center; max-width: 250px; }
+
+    /* Mobile carousel */
+    .carousel-container { display: none; width: 100%; max-width: 400px; margin: 0 auto; position: relative; overflow: hidden; }
+    .carousel-track { display: flex; width: 100%; }
+    .carousel-slide {
+      min-width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding: 0 1rem;
     }
-        /* Mobile */
+    .carousel-nav { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; }
+    .carousel-btn {
+      background: #4eb3e6; color: white; border: none; border-radius: 50%;
+      width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease;
+    }
+    .carousel-btn:hover { background: #3a8acb; transform: scale(1.1); }
+    .carousel-btn:active { background: #2c5f8a; transform: scale(0.95); }
+
+    @media (hover: none) and (pointer: coarse) {
+      .carousel-btn:hover { background: #4eb3e6; transform: none; }
+    }
+
+    /* Mobile */
     @media (max-width: 768px) {
       .title { font-size: 2.5rem; }
       .subtitle { font-size: 1.5rem; }
       .middle-text { font-size: 1.1rem; width: 90%; }
       .btn-layout { flex-direction: column; }
-      .btn-section { align-items: center; }
-      .buttons-row { flex-direction: column; gap: 2rem; align-items: center; }
-      .audio-buttons { 
-        flex-direction: column; 
-        gap: 2rem; 
-        width: 100%;
+      .audio-buttons {
+        flex-direction: column; gap: 2rem; width: 100%;
+        align-items: center;
       }
       .audio-buttons > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        width: 100%;
+        display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 100%;
       }
-      .circular-button {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
+      .circular-button { width: 70px; height: 70px; border-radius: 50%; flex-shrink: 0; }
       .iphone-img-desktop { display: none; }
       .iphone-computer { display: none; }
-      .iphone-img-mobile { 
-        display: block; 
-        margin: 2rem auto;
-      }
-      .stripe-circles {
-        display: none;
-      }
-      .carousel-container {
-        display: block;
-      }
-      .stripe-col {
-        width: 90%;
-        margin: 0 auto;
-      }
-      .stripe-description {
-        max-width: 100%;
-        padding: 0 1rem;
-      }
+      .iphone-img-mobile { display: block; margin: 2rem auto; }
+
+      .stripe-circles { display: none; }
+      .carousel-container { display: block; }
+
+      .stripe-col { width: 90%; margin: 0 auto; }
+      .stripe-description { max-width: 100%; padding: 0 1rem; }
     }
-    
+
     /* Medium screens - responsive sizing */
     @media (max-width: 1200px) and (min-width: 769px) {
-      .iphone-img-desktop { 
-        width: clamp(100px, 18vw, 200px);
-        left: 1rem;
-      }
+      .iphone-img-desktop { width: clamp(100px, 18vw, 200px); left: 1rem; }
     }
-    
+
     /* Large screens - larger size */
     @media (min-width: 1400px) {
-      .iphone-img-desktop {
-        width: clamp(150px, 25vw, 300px);
-        left: 3rem;
-      }
+      .iphone-img-desktop { width: clamp(150px, 25vw, 300px); left: 3rem; }
     }
-    
+
     /* Small desktop - hide to prevent overlap */
     @media (max-width: 1000px) and (min-width: 769px) {
       .iphone-img-desktop { display: none; }
     }
+
     /* Desktop */
     @media (min-width: 769px) {
       .container { padding: 2rem; }
-      .btn-layout { flex-direction: row; align-items: flex-start; gap: 3rem; margin-top: 2rem; }
-      .iphone-img-desktop { 
-        display: none; 
-      }
-
-      .btn-section { align-items: flex-start; }
-      .buttons-row { gap: 1rem; }
-      .audio-buttons { 
-        flex-direction: row; 
-        gap: 3rem; 
-        align-items: flex-start;
-      }
-      .btn-section .label { margin: 0; }
-      .btn-section .label:first-of-type { font-size: 1.3rem; }
       .title { font-size: 4rem; }
       .subtitle { font-size: 2rem; }
-                    .content-group {
+
+      /* Content group card */
+      .content-group {
         background: rgba(83, 168, 239, 0.2);
         border-radius: 20px;
         padding: 3rem;
         margin: 2rem 0;
         border: 2px solid rgba(83, 168, 239, 0.5);
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: flex-start;
-      }
-      
-      .content-group .middle-text {
-        width: 100%;
-        margin: 0 0 2rem 0;
+        gap: 2rem;
         text-align: left;
       }
-      
-      .content-group .btn-layout {
-        width: 100%;
-        margin: 0;
-      }
-      
-      .content-group .audio-buttons {
-        flex-direction: row !important;
-        gap: 3rem;
-        align-items: flex-start;
-        justify-content: flex-start;
-        width: 100%;
-      }
-      
-      .content-group .audio-buttons > div {
-        flex-direction: column !important;
-        align-items: center;
-        gap: 0.5rem;
-        width: auto !important;
-        flex: 0 0 auto;
-      }
-      
+
       .iphone-computer {
-        width: 300px;
-        height: auto;
-        margin-right: 2rem;
-        flex-shrink: 0;
+        width: 300px; height: auto; margin-right: 0; flex-shrink: 0;
       }
-      .btn-section .label:nth-of-type(2) { font-size: 1rem; opacity: 0.8; }
+
+      /* NEW: right column to stack middle text over buttons */
+      .right-column {
+        display: flex; flex-direction: column; align-items: flex-start; width: 100%;
+      }
+      .right-column .middle-text {
+        width: 100%; margin: 0 0 1.5rem 0; text-align: left;
+      }
+      .right-column .btn-layout {
+        width: 100%; margin: 0; justify-content: flex-start;
+      }
+      .right-column .audio-buttons {
+        flex-direction: row !important; gap: 3rem; align-items: flex-start; justify-content: flex-start;
+      }
+      .right-column .audio-buttons > div {
+        display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: auto; flex: 0 0 auto;
+      }
+
       .stripe { flex-direction: row; justify-content: center; padding: 4rem 2rem; }
-      .stripe-light { 
-        padding: 4rem 2rem; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+      .stripe-light { padding: 4rem 2rem; display: flex; justify-content: center; align-items: center; }
       .stripe-circles { justify-content: center; width: 100%; }
       .stripe-col { width: 30%; margin: 0; }
       .stripe-item { margin: 0; }
@@ -357,34 +205,38 @@
     <h1 class="title">This Life</h1>
     <h2 class="subtitle">an experiment in spiritual and emotional progress</h2>
     <img src="thislife.png" alt="This Life iPhone" class="iphone-img-mobile">
+
+    <!-- CONTENT GROUP: iPhone (left) | right column with text, then buttons -->
     <div class="content-group">
       <img src="iphonecomputer.svg" alt="iPhone Computer" class="iphone-computer">
-      <div class="middle-text">
-        Three experiences. One goal: greater peace with yourself and reality. Non-phony. Audio based. For people who no matter what else may happen want to at least feel ok about how they tried.
-      </div>
-      <div class="btn-layout">
-        <div class="btn-section">
-          <div class="buttons-row">
-            <div class="audio-buttons">
-              <div>
-                <button id="play-button-1" class="circular-button circular-button-1">▶</button>
-                <div class="label">Theory</div>
-                <div class="label">~1 min explanation of the idea</div>
-              </div>
-              <div>
-                <button id="play-button-2" class="circular-button circular-button-2">▶</button>
-                <div class="label">Experience</div>
-                <div class="label">~1 min montage of early members</div>
-              </div>
+
+      <div class="right-column">
+        <div class="middle-text">
+          Three experiences. One goal: greater peace with yourself and reality. Non-phony. Audio based. For people who no matter what else may happen want to at least feel ok about how they tried.
+        </div>
+
+        <div class="btn-layout">
+          <div class="audio-buttons">
+            <div>
+              <button id="play-button-1" class="circular-button circular-button-1">▶</button>
+              <div class="label">Theory</div>
+              <div class="label">~1 min explanation of the idea</div>
+            </div>
+            <div>
+              <button id="play-button-2" class="circular-button circular-button-2">▶</button>
+              <div class="label">Experience</div>
+              <div class="label">~1 min montage of early members</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div> <!-- /content-group -->
   </div>
+
   <div class="stripe-light">
     <a class="join-button" href="https://apps.apple.com/us/app/this-life-an-experiment/id6746807306" target="_blank" rel="noopener noreferrer">join the experiment</a>
   </div>
+
   <div class="stripe">
     <div class="stripe-circles">
       <div class="stripe-col">
@@ -403,7 +255,7 @@
         <div class="stripe-description">two strangers, paired for just a moment. if you both choose, you can exchange a single text to wish each other well.</div>
       </div>
     </div>
-    
+
     <!-- Mobile Carousel -->
     <div class="carousel-container">
       <div class="carousel-track">
@@ -429,14 +281,18 @@
       </div>
     </div>
   </div>
+
   <audio id="examples-audio" src="examples.mp3" preload="auto"></audio>
   <audio id="patrick-audio" src="patrick_theory.mp3" preload="auto"></audio>
+
   <script>
+    // Audio buttons
     setTimeout(function () {
       const button1 = document.getElementById('play-button-1');
       const button2 = document.getElementById('play-button-2');
       const audio = document.getElementById('examples-audio');
       const patrickAudio = document.getElementById('patrick-audio');
+
       if (button1) {
         button1.addEventListener('click', function () {
           if (this.textContent === '▶') {
@@ -456,55 +312,37 @@
         });
       }
     }, 100);
-    
-    // Carousel functionality
+
+    // Carousel
     document.addEventListener('DOMContentLoaded', function() {
       const track = document.querySelector('.carousel-track');
       const slides = document.querySelectorAll('.carousel-slide');
       const prevBtn = document.getElementById('prev-btn');
       const nextBtn = document.getElementById('next-btn');
-      
+
       let currentSlide = 0;
       const totalSlides = slides.length;
-      
+
       function updateCarousel() {
         track.style.transform = `translateX(-${currentSlide * 100}%)`;
       }
-      
       function nextSlide() {
         currentSlide = (currentSlide + 1) % totalSlides;
         updateCarousel();
       }
-      
       function prevSlide() {
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         updateCarousel();
       }
-      
       function addClickEffect(button) {
         button.style.background = '#2c5f8a';
         button.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          button.style.background = '';
-          button.style.transform = '';
-        }, 200);
+        setTimeout(() => { button.style.background = ''; button.style.transform = ''; }, 200);
       }
-      
-      // Event listeners
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
-          nextSlide();
-          addClickEffect(this);
-        });
-      }
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
-          prevSlide();
-          addClickEffect(this);
-        });
-      }
-      
-      // Initialize
+
+      if (nextBtn) nextBtn.addEventListener('click', function() { nextSlide(); addClickEffect(this); });
+      if (prevBtn) prevBtn.addEventListener('click', function() { prevSlide(); addClickEffect(this); });
+
       updateCarousel();
     });
   </script>
