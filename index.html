@@ -134,6 +134,10 @@
       .iphone-img-mobile { display: block; margin: 2rem auto; }
       .appstore-img-mobile { display: block; margin: 0 auto 1rem auto; }
       .googleplay-img-mobile { display: block; margin: 1rem auto 0 auto; }
+      
+      /* Hide desktop elements on mobile */
+      .appstore-img-desktop { display: none; }
+      .googleplay-img-desktop { display: none; }
 
       .stripe-circles { display: none; }
       .carousel-container { display: block; }
@@ -174,8 +178,8 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 80vmin;
-        height: 80vmin;
+        width: 70vmin;
+        height: 70vmin;
         border-radius: 50%;
         background: #c62828; /* red */
         transform: translate(40%, -40%); /* push center offscreen to top-right */
@@ -232,7 +236,28 @@
       }
 
       .stripe { flex-direction: row; justify-content: center; padding: 4rem 2rem; }
-      .stripe-light { padding: 4rem 2rem; display: flex; justify-content: center; align-items: center; }
+      .stripe-light { 
+        padding: 4rem 2rem; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        gap: 2rem;
+      }
+      
+      /* Desktop App Store and Google Play images */
+      .appstore-img-desktop { 
+        display: block; 
+        width: 200px; 
+        height: auto; 
+        flex-shrink: 0;
+      }
+      
+      .googleplay-img-desktop { 
+        display: block; 
+        width: 200px; 
+        height: auto; 
+        flex-shrink: 0;
+      }
       .stripe-circles { justify-content: center; width: 100%; }
       .stripe-col { width: 30%; margin: 0; }
       .stripe-item { margin: 0; }
@@ -281,6 +306,13 @@
     </a>
     <a class="join-button" href="https://apps.apple.com/us/app/this-life-an-experiment/id674680726" target="_blank" rel="noopener noreferrer">join the experiment</a>
     <img src="googleplay.png" alt="Google Play" class="googleplay-img-mobile">
+    
+    <!-- Desktop layout: row of three elements -->
+    <a href="https://apps.apple.com/us/app/this-life-an-experiment/id6746807306" target="_blank" rel="noopener noreferrer">
+      <img src="appstore.png" alt="App Store" class="appstore-img-desktop">
+    </a>
+    <a class="join-button" href="https://apps.apple.com/us/app/this-life-an-experiment/id674680726" target="_blank" rel="noopener noreferrer">join the experiment</a>
+    <img src="googleplay.png" alt="Google Play" class="googleplay-img-desktop">
   </div>
 
   <div class="stripe">
