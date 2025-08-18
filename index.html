@@ -70,11 +70,9 @@
     /* Mobile iPhone image */
     .iphone-img-mobile { display: none; width: 200px; height: auto; }
     
-    /* Mobile App Store image */
-    .appstore-img-mobile { display: none; width: 200px; height: auto; margin-bottom: 1rem; }
-    
-    /* Mobile Google Play image */
-    .googleplay-img-mobile { display: none; width: 200px; height: auto; margin-top: 1rem; }
+    /* App Store and Google Play images - base styles */
+    .appstore-img { width: 200px; height: auto; }
+    .googleplay-img { width: 200px; height: auto; }
 
     .stripe {
       width: 100%; background: #455a64; padding: 3rem 1rem;
@@ -132,12 +130,14 @@
       .iphone-img-desktop { display: none; }
       .iphone-computer { display: none; }
       .iphone-img-mobile { display: block; margin: 2rem auto; }
-      .appstore-img-mobile { display: block; margin: 0 auto 1rem auto; }
-      .googleplay-img-mobile { display: block; margin: 1rem auto 0 auto; }
       
-      /* Hide desktop elements on mobile */
-      .appstore-img-desktop { display: none; }
-      .googleplay-img-desktop { display: none; }
+      /* Mobile: stack elements vertically */
+      .stripe-light {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .appstore-img { margin: 0 auto 1rem auto; }
+      .googleplay-img { margin: 1rem auto 0 auto; }
 
       .stripe-circles { display: none; }
       .carousel-container { display: block; }
@@ -242,20 +242,15 @@
         justify-content: center; 
         align-items: center;
         gap: 2rem;
+        flex-direction: row;
       }
       
-      /* Desktop App Store and Google Play images */
-      .appstore-img-desktop { 
-        display: block; 
-        width: 200px; 
-        height: auto; 
+      /* Desktop: horizontal row layout */
+      .appstore-img { 
         flex-shrink: 0;
       }
       
-      .googleplay-img-desktop { 
-        display: block; 
-        width: 200px; 
-        height: auto; 
+      .googleplay-img { 
         flex-shrink: 0;
       }
       .stripe-circles { justify-content: center; width: 100%; }
@@ -302,17 +297,10 @@
 
   <div class="stripe-light">
     <a href="https://apps.apple.com/us/app/this-life-an-experiment/id6746807306" target="_blank" rel="noopener noreferrer">
-      <img src="appstore.png" alt="App Store" class="appstore-img-mobile">
+      <img src="appstore.png" alt="App Store" class="appstore-img">
     </a>
     <a class="join-button" href="https://apps.apple.com/us/app/this-life-an-experiment/id674680726" target="_blank" rel="noopener noreferrer">join the experiment</a>
-    <img src="googleplay.png" alt="Google Play" class="googleplay-img-mobile">
-    
-    <!-- Desktop layout: row of three elements -->
-    <a href="https://apps.apple.com/us/app/this-life-an-experiment/id6746807306" target="_blank" rel="noopener noreferrer">
-      <img src="appstore.png" alt="App Store" class="appstore-img-desktop">
-    </a>
-    <a class="join-button" href="https://apps.apple.com/us/app/this-life-an-experiment/id674680726" target="_blank" rel="noopener noreferrer">join the experiment</a>
-    <img src="googleplay.png" alt="Google Play" class="googleplay-img-desktop">
+    <img src="googleplay.png" alt="Google Play" class="googleplay-img">
   </div>
 
   <div class="stripe">
