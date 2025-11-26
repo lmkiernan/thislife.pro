@@ -44,24 +44,45 @@
       font-size: 1.5rem;
       font-weight: 600;
     }
+    .android-input-group {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
     .android-text-field {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
+      border: none;
+      border-radius: 25px 0 0 25px;
+      background: white;
+      color: #333;
       width: 300px;
       max-width: 90%;
       font-family: 'Poppins', sans-serif;
     }
     .android-text-field::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: #999;
     }
     .android-text-field:focus {
       outline: none;
-      border-color: rgba(255, 255, 255, 0.6);
-      background: rgba(255, 255, 255, 0.15);
+    }
+    .notify-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0 25px 25px 0;
+      background: #000;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .notify-button:hover {
+      background: #333;
+    }
+    .notify-button:active {
+      background: #000;
     }
 
     .circular-button {
@@ -151,7 +172,9 @@
       }
       .appstore-img { margin: 1rem auto 0 auto; }
       .android-text { font-size: 1.2rem; }
-      .android-text-field { width: 90%; max-width: 300px; font-size: 0.9rem; }
+      .android-input-group { flex-direction: column; gap: 0.5rem; width: 90%; max-width: 400px; }
+      .android-text-field { width: 100%; border-radius: 25px; font-size: 0.9rem; }
+      .notify-button { width: 100%; border-radius: 25px; font-size: 0.9rem; }
 
       .stripe-circles { display: none; }
       .carousel-container { display: block; }
@@ -309,7 +332,10 @@
   <div class="stripe-light">
     <div class="android-coming-soon">
       <div class="android-text">Android coming soon</div>
-      <input type="text" class="android-text-field" placeholder="Enter your email">
+      <div class="android-input-group">
+        <input type="text" class="android-text-field" placeholder="Enter your email">
+        <button type="button" class="notify-button">notify me</button>
+      </div>
     </div>
     <a href="https://apps.apple.com/us/app/this-life-an-experiment/id6746807306" target="_blank" rel="noopener noreferrer">
       <img src="appstore.png" alt="App Store" class="appstore-img">
