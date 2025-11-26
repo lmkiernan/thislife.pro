@@ -450,6 +450,52 @@
 
       updateCarousel();
     });
+
+    // Notify me button handler
+    document.addEventListener('DOMContentLoaded', function() {
+      const notifyButton = document.querySelector('.notify-button');
+      const emailField = document.querySelector('.android-text-field');
+      
+      if (notifyButton && emailField) {
+        notifyButton.addEventListener('click', function() {
+          const email = emailField.value.trim();
+          
+          if (email) {
+            // Replace 'YOUR_ACCESS_KEY' with your Web3Forms access key
+            // Get it free from https://web3forms.com (no backend needed)
+            const accessKey = '6a83aedf-7d1a-467e-9224-c748a7ae9a56';
+            
+            // Send email via Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                access_key: accessKey,
+                subject: 'Android Waitlist Signup',
+                email: email,
+                message: `New Android waitlist signup: ${email}`
+              })
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log('Email sent successfully', data);
+              emailField.value = ''; // Clear the field
+            })
+            .catch(error => {
+              console.error('Error sending email:', error);
+              // Still clear the field even if there's an error
+              emailField.value = '';
+            });
+          } else {
+            // If field is empty, just clear it
+            emailField.value = '';
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
